@@ -1,10 +1,14 @@
-window.StarbnbSearch = {
+/*global Starbnb*/
+
+window.Starbnb = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    var $rootEl = $("div.results")
+    new Starbnb.Routers.SearchRouter({$rootEl: $rootEl});
+    Backbone.history.start();
   }
 };
 
