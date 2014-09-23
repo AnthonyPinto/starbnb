@@ -11,7 +11,8 @@ Starbnb.Routers.SearchRouter = Backbone.Router.extend({
   },
   
   index: function () {
-    var spaces = {}; //add system for collection
+    var spaces = new Starbnb.Collections.Spaces;
+    spaces.fetch(); 
     var indexView = new Starbnb.Views.IndexSpaces({collection: spaces});
     this._swapView(indexView);
   },

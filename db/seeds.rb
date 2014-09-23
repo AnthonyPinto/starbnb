@@ -17,4 +17,15 @@ appAcademy = anthony.spaces.create({
   bedrooms: 3,
   beds: 25,
   description: "Not bad if you don't mind the bugs"
-  })
+})
+
+moon = anthony.spaces.create({
+  name: "The Moon", 
+  address: "Earth orbit, Sol system, Milky Way",
+  style: "moon",
+  price: 950000,
+  guests: 2,
+  bedrooms: 1,
+  beds: 1,
+  description: "There is a reason this moon is 'the' moon"
+})
