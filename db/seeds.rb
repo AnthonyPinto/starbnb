@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+anthony = User.create!({username: "anthony", password: "111111"})
+
+appAcademy = anthony.spaces.create({
+  name: "AppAcademy", 
+  address: "1061 Market St #4, San Francisco, CA 94103",
+  style: "planetoid",
+  price: 0,
+  guests: 25,
+  bedrooms: 3,
+  beds: 25,
+  description: "Not bad if you don't mind the bugs"
+  })

@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   
   attr_reader :password
   
+  has_many :spaces
+  
   def self.generate_session_token
     return SecureRandom.urlsafe_base64
   end

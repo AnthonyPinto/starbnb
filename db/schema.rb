@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923174625) do
+ActiveRecord::Schema.define(version: 20140923184851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140923174625) do
     t.string   "name",        null: false
     t.string   "address",     null: false
     t.integer  "user_id",     null: false
-    t.string   "type",        null: false
+    t.string   "style",       null: false
     t.integer  "price",       null: false
     t.integer  "guests",      null: false
     t.integer  "bedrooms",    null: false

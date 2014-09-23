@@ -17,23 +17,11 @@ class SessionsController < ApplicationController
     end
   end
 
-  def update
-  end
-
-  def edit
-  end
-
   def destroy
     @user = current_user
     @user.reset_session_token!
     session[:session_token] = nil
     redirect_to new_session_url
-  end
-
-  def index
-  end
-
-  def show
   end
   
   def login_params
