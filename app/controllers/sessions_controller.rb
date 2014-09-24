@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       flash[:successes] = ["Welcome back #{@user.username}!"]
       redirect_to :root
     else
+      @user = User.new(username: login_params[:username])
       flash.now[:errors] = ["Invalid Login"]
       render :new
     end
