@@ -13,9 +13,11 @@
 //= require jquery
 //= require bootstrap
 //= require jquery_ujs
+//= require jquery.nouislider.all
 //= require underscore
 //= require backbone
 //= require starbnb
+
 
 //= require_tree ../templates
 //= require_tree ./utils

@@ -5,12 +5,24 @@
   </div>
 </div>
 <div class="search-sidebar">
-  
-  
-
   <h1>StaticPages#search</h1>
+  <div 
+    class="price-slider"></div>
 
   <div class="results"></div>
 </div>
 
 <script>$(Starbnb.initialize);</script>
+<script>$( function () {
+  $("nav").addClass('navbar-fixed-top')
+  $(".price-slider").noUiSlider({
+    start: [0, 1000],
+  	connect: true,
+  	orientation: "horizontal",
+  	range: {
+  		'min': 0,
+  		'max': 1000
+  	}
+  });
+} 
+);</script>
