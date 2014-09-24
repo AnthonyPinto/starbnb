@@ -14,6 +14,8 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require jquery.nouislider.all
+//= require moment
+//= require bootstrap-datetimepicker
 //= require underscore
 //= require backbone
 //= require starbnb

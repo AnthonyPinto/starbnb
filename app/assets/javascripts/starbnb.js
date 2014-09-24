@@ -6,7 +6,7 @@ window.Starbnb = {
   Views: {},
   Routers: {},
   initialize: function() {
-    var $rootEl = $("div.results")
+    var $rootEl = $("div#search-wrapper")
     new Starbnb.Routers.SearchRouter({$rootEl: $rootEl});
     Backbone.history.start();
   }
