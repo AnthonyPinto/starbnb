@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" 
+        type="image/starbnb-favicon" 
+        href="http://example.com/myicon.png">
+  
   <title>Starbnb</title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
@@ -9,6 +13,8 @@
 <body>
 
 <%= render "layouts/nav" %>
+
+<div class="body-inner-wrapper container-fluid">
   
 <% flash.each do |type, msgs| %>
   <h3><%= type %></h3>
@@ -17,7 +23,7 @@
   <% end %>
 <% end %>
 
-<div class="body-inner-wrapper container">
+
 
 <%= yield %>
 

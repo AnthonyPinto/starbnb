@@ -23,9 +23,24 @@
 }
 
 .navbar-brand {
-  padding: 5px 20px 5px 20px;
+  padding: 5px 20px;
 }
 
-.search-map-pane {
-  height:100vh;
+.search-sidebar {
+  margin-top: 50px;
+  margin-left: 40%;
+  padding-left: 30px;
 }
+.search-map-frame {
+  width: 40%;
+  position: fixed;
+}
+
+
+.search-map {
+  background-color: lightblue;
+
+  height: 100vh;
+
+}
+
