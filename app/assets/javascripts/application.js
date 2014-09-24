@@ -11,10 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap
 //= require jquery_ujs
 //= require underscore
 //= require backbone
 //= require starbnb
+
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models
