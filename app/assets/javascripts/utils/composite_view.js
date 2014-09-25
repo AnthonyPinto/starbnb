@@ -36,6 +36,15 @@ Backbone.CompositeView = Backbone.View.extend({
       });
     });
   },
+  
+  onRender: function () {
+    _(this.subviews()).each(function (subviews) {
+      _(subviews).each(function (subview) {
+        subview.onRender && subview.onRender();
+      });
+    });
+  },
+  
 
   remove: function () {
     Backbone.View.prototype.remove.call(this);

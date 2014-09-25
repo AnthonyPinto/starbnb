@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users 
   
   namespace :api, defaults: {format: :json }do
-    resources :spaces, only: [:create, :destroy, :show, :index]
+    resources :ports, only: [:create, :destroy, :show, :index]
   end
 
 end

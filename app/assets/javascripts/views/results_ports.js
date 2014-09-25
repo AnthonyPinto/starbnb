@@ -1,10 +1,10 @@
 /*global Starbnb JST*/
 
-Starbnb.Views.ResultsSpaces = Backbone.CompositeView.extend({
-  template: JST["spaces/results_spaces"],
+Starbnb.Views.ResultsPorts = Backbone.CompositeView.extend({
+  template: JST["ports/results_ports"],
   
   render: function () {
-    var content = this.template({space: this.model});
+    var content = this.template({port: this.model});
     this.$el.html(content);
     this.renderBriefs();
     return this;
@@ -15,7 +15,7 @@ Starbnb.Views.ResultsSpaces = Backbone.CompositeView.extend({
   },
   
   addBrief: function (brief) {
-    var view = new Starbnb.Views.BriefSpace({
+    var view = new Starbnb.Views.BriefPort({
       model: brief
     });
     this.addSubview('.briefs', view);

@@ -30,18 +30,18 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
       }
     });
      
-    var results = this.collection.filter( function (space) {
+    var results = this.collection.filter( function (port) {
       if ( !(filters.types.length === 0) &&
-        !(_.contains(filters.types, space.get('style'))) ){
+        !(_.contains(filters.types, port.get('style'))) ){
         return false;
       }
-      var price = parseInt(space.get('price'), 10);
+      var price = parseInt(port.get('price'), 10);
       if (price < filters.priceLower || price > filters.priceUpper){
         return false;
       }
       return true
     });
-    this.currentResults = new Starbnb.Collections.Spaces(results);
+    this.currentResults = new Starbnb.Collections.Ports(results);
     this.refreshResultViews();
   },
   
@@ -56,7 +56,7 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
   
   
   render: function () {
-    var content = this.template({spaces: this.collection});
+    var content = this.template({ports: this.collection});
     this.$el.html(content);
     this.renderResults();
     this.initSlider();
@@ -93,7 +93,7 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
   },
   
   renderResults: function () {
-    var view = new Starbnb.Views.ResultsSpaces({collection: this.currentResults});
+    var view = new Starbnb.Views.ResultsPorts({collection: this.currentResults});
     this.addSubview('.results-wrapper', view);
   }
 

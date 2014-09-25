@@ -8,68 +8,62 @@
 
 anthony = User.create!({username: "anthony", password: "111111"})
 
-appAcademy = anthony.spaces.create({
+appAcademy = anthony.ports.create({
   name: "AppAcademy", 
   address: "1061 Market St #4, San Francisco, CA 94103",
-  style: "planet",
+  style: "pad",
   price: 0,
-  guests: 25,
-  bedrooms: 3,
-  beds: 25,
-  description: "Not bad if you don't mind the bugs"
+  staff: 0,
+  pads: 1,
+  description: "I bet you could launch a bottle rocket out the window if you wanted"
 })
 
-moon = anthony.spaces.create({
-  name: "The Moon", 
+moon = anthony.ports.create({
+  name: "Cape Canaveral", 
   address: "Earth orbit, Sol system, Milky Way",
-  style: "moon",
+  style: "port",
   price: 950,
-  guests: 2,
-  bedrooms: 1,
-  beds: 1,
-  description: "There is a reason this moon is 'the' moon"
+  staff: 2,
+  pads: 1,
+  description: "A luxury space-launch experience"
 })
 
-deathstar = anthony.spaces.create({
-  name: "The Deathstar", 
+deathstar = anthony.ports.create({
+  name: "Kennedy", 
   address: "A galaxy far far away",
-  style: "station",
-  price: 899,
-  guests: 8,
-  bedrooms: 3,
-  beds: 5,
-  description: "Cozy rooms, big swishy doors"
+  style: "field",
+  price: 500,
+  staff: 8,
+  pads: 5,
+  description: "No nonsense space program offerings"
 })
 
-bab5 = anthony.spaces.create({
-  name: "Babylon 5", 
+bab5 = anthony.ports.create({
+  name: "Cosmodrone", 
   address: "The edge of human space",
-  style: "station",
-  price: 40,
-  guests: 4,
-  bedrooms: 2,
-  beds: 2,
-  description: "Exciting cultural exchange"
+  style: "port",
+  price: 700,
+  staff: 4,
+  pads: 2,
+  description: "Space exploration straight from the motherland"
 })
 
-mars = anthony.spaces.create({
-  name: "Mars", 
+mars = anthony.ports.create({
+  name: "Jeb's discount space-port and gifts", 
   address: "Mars, Sol system, Milky Way",
-  style: "planet",
-  price: 900,
-  guests: 13,
-  bedrooms: 5,
-  beds: 10,
-  description: "Easy walk from the mysterious ruins of the long dead martian empire"
+  style: "port",
+  price: 100,
+  staff: 13,
+  pads: 10,
+  description: "Look no further for all of your space-flight needs, fun for the whole family"
 })
 
-sun = anthony.spaces.create({
-  name: "Venus", 
+sun = anthony.ports.create({
+  name: "Area 51", 
   address: "Venus, Sol system, Milky Way",
-  style: "planet",
+  style: "field",
   price: 15,
-  guests: 2,
-  bedrooms: 1,
-  beds: 1,
-  description: "Looking for a real hot spot? ultra modern design"
+  staff: 2,
+  pads: 1,
+  description: "Perfect location for a discreet get away"
 })
