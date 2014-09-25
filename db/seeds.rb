@@ -56,7 +56,7 @@ mars = anthony.spaces.create({
   name: "Mars", 
   address: "Mars, Sol system, Milky Way",
   style: "planet",
-  price: 1250,
+  price: 900,
   guests: 13,
   bedrooms: 5,
   beds: 10,
