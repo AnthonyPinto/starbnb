@@ -11,7 +11,7 @@ anthony = User.create!({username: "anthony", password: "111111"})
 appAcademy = anthony.spaces.create({
   name: "AppAcademy", 
   address: "1061 Market St #4, San Francisco, CA 94103",
-  style: "planetoid",
+  style: "planet",
   price: 0,
   guests: 25,
   bedrooms: 3,
@@ -33,7 +33,7 @@ moon = anthony.spaces.create({
 deathstar = anthony.spaces.create({
   name: "The Deathstar", 
   address: "A galaxy far far away",
-  style: "space station",
+  style: "station",
   price: 899,
   guests: 8,
   bedrooms: 3,
@@ -44,7 +44,7 @@ deathstar = anthony.spaces.create({
 bab5 = anthony.spaces.create({
   name: "Babylon 5", 
   address: "The edge of human space",
-  style: "space station",
+  style: "station",
   price: 40,
   guests: 4,
   bedrooms: 2,
@@ -55,7 +55,7 @@ bab5 = anthony.spaces.create({
 mars = anthony.spaces.create({
   name: "Mars", 
   address: "Mars, Sol system, Milky Way",
-  style: "planetoid",
+  style: "planet",
   price: 1250,
   guests: 13,
   bedrooms: 5,
@@ -64,9 +64,9 @@ mars = anthony.spaces.create({
 })
 
 sun = anthony.spaces.create({
-  name: "Sol", 
-  address: "Sol, Sol system, Milky Way",
-  style: "star",
+  name: "Venus", 
+  address: "Venus, Sol system, Milky Way",
+  style: "planet",
   price: 15,
   guests: 2,
   bedrooms: 1,

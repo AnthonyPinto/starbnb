@@ -2,33 +2,35 @@
 <h1>StaticPages#search</h1>
 <form>
   <div class="form-group">
-    <input type='text' 
-      class="form-control datetimepicker" 
+    <input type='text'
+      name="space[checkIn]"
+      class="form-control datetimepicker"
+      placeholder="Check In" 
       id='datetimepickerStart'/>
     <input 
+      name="space[checkOut]"
       type='text' 
-      class="form-control datetimepicker" 
+      class="form-control datetimepicker"
+      placeholder="Check Out"  
       id='datetimepickerEnd'/>
   </div>
-  <div class="checkbox">
+  <div class="checkbox" name="space[style]">
     <label>
-      <input type="checkbox"> Planetoid
+      <input class="checkbox-choice" type="checkbox" value="planet"> Planet
     </label>
     <label>
-      <input type="checkbox"> Moon
+      <input class="checkbox-choice" type="checkbox" value="moon"> Moon
     </label>
     <label>
-      <input type="checkbox"> Spacestation
+      <input class="checkbox-choice" type="checkbox" value="station"> Station
     </label>
   </div>
   <div class="form-group">
     <label for="price-slider">Price Range</label>
-    <div id="price-slider"></div>
-    <span id="price-lower"></span>
-    <span id="price-upper"></span>
+    <div id="price-slider" name="space[priceRange]"></div>
+    <input id="price-lower"></input>
+    <input id="price-upper"></input>
   </div>
 </form>
-<div class="results">
-  <h2>ALL THE SPACES:</h2>
-  <div class="briefs"></div>
+<div class="results-wrapper">
 </div>
