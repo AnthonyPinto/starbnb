@@ -1,6 +1,6 @@
 /*global Starbnb*/
 
-Starbnb.Collections.Ports = Backbone.Collection.extend({
+Starbnb.Collections.Photos = Backbone.Collection.extend({
   url: "api/photos",
   model: Starbnb.Models.Photo,
   

@@ -5,7 +5,7 @@ json.( @port, :id, :name, :address, :user_id, :style, :price, :staff, :pads, :de
 
 json.photos @port.photos do |photo|
   json.id photo.id
-  json.url = photo.url
+  json.url photo.url
   json.photable_id photo.photable_id
   json.photable_type photo.photable_type
   json.created_at photo.created_at
@@ -19,7 +19,7 @@ end
 
 json.user_photo do
   json.id @port.user.photos.first.id
-  json.url = @port.user.photos.first.url
+  json.url @port.user.photos.first.url
   json.photable_id @port.user.photos.first.photable_id
   json.photable_type @port.user.photos.first.photable_type
   json.created_at @port.user.photos.first.created_at

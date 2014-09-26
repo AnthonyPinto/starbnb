@@ -1,5 +1,5 @@
 /*global Starbnb*/
 
-Starbnb.Models.Port = Backbone.Model.extend({
-  urlRoot: "api/ports"
+Starbnb.Models.Photo = Backbone.Model.extend({
+  urlRoot: "api/photos"
 });

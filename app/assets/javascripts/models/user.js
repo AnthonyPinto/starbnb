@@ -1,5 +1,5 @@
 /*global Starbnb*/
 
-Starbnb.Models.Photo = Backbone.Model.extend({
-  urlRoot: "api/photos"
+Starbnb.Models.User = Backbone.Model.extend({
+  urlRoot: "api/users"
 });
