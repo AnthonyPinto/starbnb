@@ -18,7 +18,6 @@
 //= require bootstrap-datetimepicker
 //= require underscore
 //= require backbone
-//= require gmaps/google
 //= require starbnb
 
 

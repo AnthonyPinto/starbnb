@@ -20,7 +20,7 @@ Starbnb.Views.Search = Backbone.CompositeView.extend({
   },
   
   renderMap: function () {
-    var view = new Starbnb.Views.Map();
+    var view = new Starbnb.Views.Map({collection: this.collection});
     this.addSubview('.search-map-frame', view);
   },
   

@@ -13,11 +13,13 @@
 #  description :string(255)      not null
 #  created_at  :datetime
 #  updated_at  :datetime
+#  latitude    :integer          not null
+#  longitude   :integer          not null
 #
 
 class Port < ActiveRecord::Base
   validates( :name, :address, :user_id, :style, :price, :staff, :pads,
-    :description, presence: true )
+    :description, :latitude, :longitude, presence: true )
    
    
   belongs_to :user 

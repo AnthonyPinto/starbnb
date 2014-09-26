@@ -18,8 +18,6 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 
-gem 'gmaps4rails'
-
 group :development do
   gem 'better_errors' # ' 0.3.2' for shared macs
   gem 'binding_of_caller'

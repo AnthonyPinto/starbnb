@@ -15,7 +15,9 @@ appAcademy = anthony.ports.create({
   price: 0,
   staff: 0,
   pads: 1,
-  description: "I bet you could launch a bottle rocket out the window if you wanted"
+  description: "I bet you could launch a bottle rocket out the window if you wanted",
+  latitude: 37.781014,
+  longitude: -122.411420
 })
 
 moon = anthony.ports.create({
@@ -25,27 +27,33 @@ moon = anthony.ports.create({
   price: 950,
   staff: 2,
   pads: 1,
-  description: "A luxury space-launch experience"
+  description: "A luxury space-launch experience",
+  latitude: 28.4889,
+  longitude: -80.5778
 })
 
 deathstar = anthony.ports.create({
-  name: "Kennedy", 
+  name: "Kennedy Space Center", 
   address: "A galaxy far far away",
   style: "field",
   price: 500,
   staff: 8,
   pads: 5,
-  description: "No nonsense space program offerings"
+  description: "No nonsense space program offerings",
+  latitude: 28.574687,
+  longitude: -80.638674
 })
 
 bab5 = anthony.ports.create({
-  name: "Cosmodrone", 
+  name: "Cosmodrome", 
   address: "The edge of human space",
   style: "port",
   price: 700,
   staff: 4,
   pads: 2,
-  description: "Space exploration straight from the motherland"
+  description: "Space exploration straight from the motherland",
+  latitude: 45.9650,
+  longitude: 63.3050
 })
 
 mars = anthony.ports.create({
@@ -55,7 +63,9 @@ mars = anthony.ports.create({
   price: 100,
   staff: 13,
   pads: 10,
-  description: "Look no further for all of your space-flight needs, fun for the whole family"
+  description: "Look no further for all of your space-flight needs, fun for the whole family",
+  latitude: 42.748891,
+  longitude: -94.992519
 })
 
 sun = anthony.ports.create({
@@ -65,5 +75,7 @@ sun = anthony.ports.create({
   price: 15,
   staff: 2,
   pads: 1,
-  description: "Perfect location for a discreet get away"
+  description: "Perfect location for a discreet get away",
+  latitude: 37.2350,
+  longitude: 115.8111
 })

@@ -3,6 +3,13 @@
 Starbnb.Views.Map = Backbone.CompositeView.extend({
   template: JST["search_map"],
   
+  initialize: function (args) {
+    this.listenTo(this.collection, "sync", this.updateMarkers);
+    
+    this.markers = [];
+  },
+  
+  
   render: function () {
     var content = this.template();
     this.$el.html(content);
@@ -10,23 +17,31 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
   },
   
   onRender: function () {
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers([
-        {
-          "lat": 0,
-          "lng": 0,
-          "picture": {
-            "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-            "width":  36,
-            "height": 36
-          },
-          "infowindow": "hello!"
-        }
-      ]);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-    });
-  }
+    var mapOptions = {
+      center: { lat: 0, lng: 0},
+      zoom: 2
+    };
+    Mmap = new google.maps.Map(this.$('#map-canvas')[0], mapOptions);
+  },
   
+  updateMarkers: function () {
+    _(this.markers).each ( function (index, marker) {
+      marker.setMap(null);
+      marker = null;
+    });
+    this.markers = [];
+    view = this;
+    this.collection.each(function(port) {
+      var lat = parseFloat(port.get("latitude"));
+      var lng = parseFloat(port.get("longitude"));
+      var latlng = new google.maps.LatLng(lat, lng);
+      var marker = new google.maps.Marker({
+          position: latlng,
+          map: Mmap,
+          title: port.get("name")
+      })
+      view.markers.push(marker);
+    })
+    
+  }
 });
