@@ -36,7 +36,7 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
   
   refreshResultViews: function () {
     console.log("refreshResultViews")
-    _(this.subviews()['.results-wrapper']).each( function (model) {
+    _(this.subviews()['.briefs']).each( function (model) {
       model.remove();
     });
     this.renderResults();
@@ -81,8 +81,14 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
   },
   
   renderResults: function () {
-    var view = new Starbnb.Views.ResultsPorts({collection: this.currentResults});
-    this.addSubview('.results-wrapper', view);
+    this.currentResults.each(this.addBrief.bind(this));
+  },
+  
+  addBrief: function (brief) {
+    var view = new Starbnb.Views.BriefPort({
+      model: brief
+    });
+    this.addSubview('.briefs', view);
   }
 
 });
