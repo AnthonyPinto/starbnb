@@ -1,8 +1,18 @@
 
-<h3><%= port.escape('name') %></h3>
+<div class="brief-img-wrapper col-xs-12">
+  <div id="dummy-x"></div>
+  <div id="element-x">
+    <img src="assets/port/jebs.jpg" class="brief-img">
+  </div>
+</div>
 
-<ul>
-  <li><%= port.escape('address') %></li>
-  <li><%= port.escape('price') %></li>
-  <li><%= port.escape('description') %></li>
-</ul>
+<div class="brief-text-wrapper col-xs-12">
+  <h4><%= port.escape('name') %></h4>
+  <ul>
+    <li><%= port.styleStr() %></li>
+    <li><%= port.escape('address') %></li>
+    <li><%= port.escape('price') %></li>
+  </ul>
+</div>
+
+

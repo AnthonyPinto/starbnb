@@ -30,13 +30,17 @@ html, body, #map-canvas {
   padding: 0;
 }
 
-.brief {
-  width: 25%;
-  height: 300px;
-  background-color: red;
-  display: block;
-  float: left;
-  margin: 20px;
+div.briefs div.brief {
+  padding: 6px;
+}
+
+.brief-img {
+  width: 100%;
+  margin: auto;
+}
+
+.brief-text-wrapper {
+  height: 50px;
 }
 
 .logo {
@@ -64,5 +68,25 @@ html, body, #map-canvas {
 
   height: 100vh;
 
+}
+
+************************************************************
+
+#container-x {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+}
+#dummy-x {
+    padding-top: 75%; /* 4:3 aspect ratio */
+}
+#element-x {
+  overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: silver /* show me! */
 }
 

@@ -4,7 +4,7 @@ Starbnb.Views.BriefPort = Backbone.CompositeView.extend({
   template: JST["ports/brief_port"],
   
   attributes: {
-    "class": "brief" 
+    "class": "brief col-sm-12 col-md-6 col-lg-4",
   },
   
   render: function () {
