@@ -13,8 +13,8 @@
 #  description :string(255)      not null
 #  created_at  :datetime
 #  updated_at  :datetime
-#  latitude    :integer          not null
-#  longitude   :integer          not null
+#  latitude    :float            not null
+#  longitude   :float            not null
 #
 
 class Port < ActiveRecord::Base
@@ -22,5 +22,7 @@ class Port < ActiveRecord::Base
     :description, :latitude, :longitude, presence: true )
    
    
-  belongs_to :user 
+  belongs_to :user
+  
+  has_many :photos, as: :photable 
 end

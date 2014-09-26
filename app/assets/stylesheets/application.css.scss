@@ -19,11 +19,24 @@
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
 
+ul {
+  list-style-type: none;
+}
+
 html, body, #map-canvas { 
   height: 100vh;
   width: 100%; 
   margin: 0; 
   padding: 0;
+}
+
+.brief {
+  width: 25%;
+  height: 300px;
+  background-color: red;
+  display: block;
+  float: left;
+  margin: 20px;
 }
 
 .logo {

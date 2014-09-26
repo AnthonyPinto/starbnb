@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
   
   has_many :ports
   
+  has_many :photos, as: :photable 
+  
   def self.generate_session_token
     return SecureRandom.urlsafe_base64
   end
