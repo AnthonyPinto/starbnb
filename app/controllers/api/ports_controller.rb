@@ -1,12 +1,12 @@
 class Api::PortsController < ApplicationController
   def index
     @ports = Port.all
-    render json: @ports
+    render 'index'
   end
   
   def show
     @port = Port.find(params[:id])
-    render json: @port
+    render "show"
   end
 
   def new

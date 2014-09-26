@@ -1,34 +1,68 @@
 <div class="search-sidebar">
-<form>
-  <div class="form-group">
-    <input type='text'
-      name="space[checkIn]"
-      class="form-control datetimepicker"
-      placeholder="Check In" 
-      id='datetimepickerStart'/>
-    <input 
-      name="space[checkOut]"
-      type='text' 
-      class="form-control datetimepicker"
-      placeholder="Check Out"  
-      id='datetimepickerEnd'/>
-  </div>
-  <div class="checkbox" name="space[style]">
-    <label>
-      <input class="checkbox-choice" type="checkbox" value="port"> Entire Port
-    </label>
-    <label>
-      <input class="checkbox-choice" type="checkbox" value="field"> Private Airfield
-    </label>
-    <label>
-      <input class="checkbox-choice" type="checkbox" value="pad"> Shared Airfield
-    </label>
-  </div>
-  <div class="form-group">
-    <label for="price-slider">Price Range</label>
-    <div id="price-slider" name="space[priceRange]"></div>
-    <input id="price-lower" class=slider-data ></input>
-    <input id="price-upper" class=slider-data ></input>
-  </div>
-</form>
-<div class="briefs"></div>
+  <form>
+    <div class="row">
+      <div class="col-xs-3">
+        Dates
+      </div>
+        <div class="col-xs-8">
+          <div class="row">
+          <div class="col-xs-4">
+            <input type='text'
+              name="space[checkIn]"
+              class="form-control datetimepicker"
+              placeholder="Check In" 
+              id='datetimepickerStart'/>
+          </div>
+          <div class="col-xs-4">
+            <input 
+              name="space[checkOut]"
+              type='text' 
+              class="form-control datetimepicker"
+              placeholder="Check Out"  
+              id='datetimepickerEnd'/>
+          </div>
+          <div class="col-xs-4">
+            Staff size
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">
+        Dates
+      </div>
+      <div class="col-xs-8">
+        <div class="row">
+          <div class="checkbox" name="space[style]">
+            <div class="col-xs-4">
+              <label>
+                <input class="checkbox-choice" type="checkbox" value="port"> Entire Port
+              </label>
+            </div>
+            <div class="col-xs-4">
+              <label>
+                <input class="checkbox-choice" type="checkbox" value="field"> Private Airfield
+              </label>
+            </div>
+            <div class="col-xs-4">
+              <label>
+                <input class="checkbox-choice" type="checkbox" value="pad"> Shared Airfield
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">
+        <label for="price-slider">Price Range</label>
+      </div>
+      <div class="col-xs-8">
+        <div id="price-slider" name="space[priceRange]"></div>
+        <input id="price-lower" class=slider-data >
+        <input id="price-upper" class=slider-data >
+      </div>
+    </div>
+  </form>
+  <div class="briefs"></div>
+</div>
