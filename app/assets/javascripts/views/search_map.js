@@ -3,11 +3,12 @@
 Starbnb.Views.Map = Backbone.CompositeView.extend({
   template: JST["search_map"],
   
-  initialize: function (args) {
+  initialize: function () {
     this.listenTo(this.collection, "sync", this.updateMarkers);
-    
+    this.listenTo(this.collection, 'filter', this.updateMarkers);
     this.markers = [];
   },
+  
   
   
   render: function () {
@@ -25,13 +26,13 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
   },
   
   updateMarkers: function () {
-    _(this.markers).each ( function (index, marker) {
+    _(this.markers).each ( function (marker, index) {
       marker.setMap(null);
       marker = null;
     });
     this.markers = [];
     view = this;
-    this.collection.each(function(port) {
+    _(this.collection.filteredModels()).each(function(port) {
       var lat = parseFloat(port.get("latitude"));
       var lng = parseFloat(port.get("longitude"));
       var latlng = new google.maps.LatLng(lat, lng);

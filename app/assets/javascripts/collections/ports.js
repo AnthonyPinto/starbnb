@@ -24,6 +24,12 @@ Starbnb.Collections.Ports = Backbone.Collection.extend({
     return results;
   },
   
+  setFilters: function (filters) {
+    this.filters = filters;
+    this.trigger("filter");
+  }
+  
+  
   
   
 });
