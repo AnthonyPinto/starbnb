@@ -1,5 +1,14 @@
 
 <div class="brief-img-wrapper col-xs-12">
+  <div class="brief-price-frame">
+    <span class="brief-dollar"><strong>$</strong></span>
+    <h3 class="brief-price"><%= port.escape('price') %></h3>
+  </div>
+  <a href="<%= "users/" + port.user().escape('id') %>">
+    <div class="brief-user-img-frame">
+      <img src="<%= port.userPhoto().escape('url') %>" class="brief-user-img">
+    </div>
+  </a>
   <div id="dummy-x"></div>
   <div id="element-x">
     <img src="<%= port.photos().at(0).escape('url') %>" class="brief-img">
@@ -11,7 +20,7 @@
   <ul>
     <li><%= port.styleStr() %></li>
     <li><%= port.escape('address') %></li>
-    <li><%= port.escape('price') %></li>
+    <li></li>
   </ul>
 </div>
 

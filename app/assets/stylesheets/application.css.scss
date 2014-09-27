@@ -34,13 +34,53 @@ div.briefs div.brief {
   padding: 6px;
 }
 
+.brief-price-frame {
+  z-index: 1;
+  background-color: rgba(80,80,80,.8);
+  position: absolute;
+  left: 0px;
+  bottom: 30px;
+  padding: 5px 10px;
+  color: white; 
+}
+
+.brief-dollar {
+  position: relative;
+  bottom: 7px;
+}
+
+.brief-price {
+  margin: 0;
+  display: inline;
+  font-weight: normal;
+}
+
 .brief-img {
   width: 100%;
   margin: auto;
 }
 
+.brief-user-img{
+  width: 100%;
+}
+
+.brief-user-img-frame{
+  z-index: 1;
+  position: absolute; 
+  overflow: hidden;
+  float: right;
+  bottom: -30px;
+  right: 15px;
+  width: 60px;
+  height: 60px;
+  border-radius:30px;
+  
+  border: 2px solid white;
+}
+
 .brief-text-wrapper {
   height: 50px;
+  padding-right: 75px;
 }
 
 .logo {
@@ -97,6 +137,6 @@ div.briefs div.brief {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: silver /* show me! */
+    background-color: black /* show me! */
 }
 

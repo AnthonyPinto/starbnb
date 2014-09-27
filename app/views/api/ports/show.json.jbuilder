@@ -13,8 +13,8 @@ json.photos @port.photos do |photo|
 end
 
 json.user do
-  json.id = @port.user.id
-  json.username = @port.user.username
+  json.id @port.user.id
+  json.username @port.user.username
 end
 
 json.user_photo do
