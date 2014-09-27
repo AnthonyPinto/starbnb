@@ -19,7 +19,7 @@ Starbnb.Collections.Ports = Backbone.Collection.extend({
       if (price < collection.filters.priceLower || price > collection.filters.priceUpper){
         return false;
       }
-      return true
+      return true;
     });
     return results;
   },
@@ -27,9 +27,26 @@ Starbnb.Collections.Ports = Backbone.Collection.extend({
   setFilters: function (filters) {
     this.filters = filters;
     this.trigger("filter");
-  }
+  },
   
+	getOrFetch: function (id) {
+		var port = this.get(id),
+			ports = this;
+		if (!port) {
+			port = new Starbnb.Models.Port({ id: id});
+			port.fetch({
+				success: function () {
+					ports.add(port);
+				},
+			});
+		} else {
+			port.fetch();
+		}
+		return port;
+	}
   
   
   
 });
+
+Starbnb.Collections.ports =  new Starbnb.Collections.Ports();

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "static_pages#home"
   
-  get '/search', to: 'static_pages#search'
+  get '/index', to: 'static_pages#index'
   
   resource :session, only: [:new, :create, :destroy]
   

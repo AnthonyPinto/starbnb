@@ -3,6 +3,6 @@ class StaticPagesController < ApplicationController
     
   end
   
-  def search
+  def index
   end
 end
