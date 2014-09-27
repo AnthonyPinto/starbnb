@@ -1,0 +1,27 @@
+<a href="<%= '#/' + spaceport.get('id') %>">
+<div class="brief-img-wrapper col-xs-12">
+  <div class="brief-price-frame">
+    <span class="brief-dollar"><strong>$</strong></span>
+    <h3 class="brief-price"><%= spaceport.escape('price') %></h3>
+  </div>
+  <a href="<%= "users/" + spaceport.user().escape('id') %>">
+    <div class="brief-user-img-frame">
+      <img src="<%= spaceport.userPhoto().escape('url') %>" class="brief-user-img">
+    </div>
+  </a>
+  <div id="dummy-x"></div>
+  <div id="element-x">
+    <img src="<%= spaceport.photos().at(0).escape('url') %>" class="brief-img">
+  </div>
+</div>
+
+<div class="brief-text-wrapper col-xs-12">
+  <h4><%= spaceport.escape('name') %></h4>
+  <ul>
+    <li><%= spaceport.styleStr() %></li>
+    <li><%= spaceport.escape('address') %></li>
+    <li></li>
+  </ul>
+</div>
+</a>
+

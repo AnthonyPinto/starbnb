@@ -32,14 +32,14 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
     });
     this.markers = [];
     view = this;
-    _(this.collection.filteredModels()).each(function(port) {
-      var lat = parseFloat(port.get("latitude"));
-      var lng = parseFloat(port.get("longitude"));
+    _(this.collection.filteredModels()).each(function(spaceport) {
+      var lat = parseFloat(spaceport.get("latitude"));
+      var lng = parseFloat(spaceport.get("longitude"));
       var latlng = new google.maps.LatLng(lat, lng);
       var marker = new google.maps.Marker({
           position: latlng,
           map: Mmap,
-          title: port.get("name")
+          title: spaceport.get("name")
       })
       view.markers.push(marker);
     })

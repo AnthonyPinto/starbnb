@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: ports
+# Table name: spaceports
 #
 #  id          :integer          not null, primary key
 #  name        :string(255)      not null
@@ -17,7 +17,7 @@
 #  longitude   :float            not null
 #
 
-class Port < ActiveRecord::Base
+class Spaceport < ActiveRecord::Base
   validates( :name, :address, :user_id, :style, :price, :staff, :pads,
     :description, :latitude, :longitude, presence: true )
    

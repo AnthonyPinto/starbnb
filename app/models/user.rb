@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   
   attr_reader :password
   
-  has_many :ports
+  has_many :spaceports
   
   has_many :photos, as: :photable 
   

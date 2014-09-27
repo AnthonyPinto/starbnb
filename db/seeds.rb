@@ -12,7 +12,7 @@ anthony.photos.create({
   url: "assets/user/anthony.jpg"
 })
 
-app = anthony.ports.create({
+app = anthony.spaceports.create({
   name: "AppAcademy", 
   address: "1061 Market St #4, San Francisco, CA 94103",
   style: "pad",
@@ -25,13 +25,13 @@ app = anthony.ports.create({
 })
 
 app.photos.create({
-  url: "assets/port/app.jpg"
+  url: "assets/spaceport/app.jpg"
 })
 
-canaveral = anthony.ports.create({
+canaveral = anthony.spaceports.create({
   name: "Cape Canaveral Air Force Station", 
   address: "Cape Canaveral, Florida, USA",
-  style: "port",
+  style: "spaceport",
   price: 950,
   staff: 2,
   pads: 1,
@@ -41,10 +41,10 @@ canaveral = anthony.ports.create({
 })
 
 canaveral.photos.create({
-  url: "assets/port/canaveral.jpg"
+  url: "assets/spaceport/canaveral.jpg"
 })
 
-kennedy = anthony.ports.create({
+kennedy = anthony.spaceports.create({
   name: "Kennedy Space Center", 
   address: "Merritt Island, Florida, USA",
   style: "field",
@@ -57,13 +57,13 @@ kennedy = anthony.ports.create({
 })
 
 kennedy.photos.create({
-  url: "assets/port/kennedy.jpg"
+  url: "assets/spaceport/kennedy.jpg"
 })
 
-cosmodrome = anthony.ports.create({
+cosmodrome = anthony.spaceports.create({
   name: "Baikonur Cosmodrome", 
   address: "Kazakh Steppe, Kazakhstan",
-  style: "port",
+  style: "spaceport",
   price: 700,
   staff: 400,
   pads: 3,
@@ -73,13 +73,13 @@ cosmodrome = anthony.ports.create({
 })
 
 cosmodrome.photos.create({
-  url: "assets/port/cosmodrome.jpg"
+  url: "assets/spaceport/cosmodrome.jpg"
 })
 
-jebs = anthony.ports.create({
-  name: "Jeb's discount space-port and family fun center", 
+jebs = anthony.spaceports.create({
+  name: "Jeb's discount spaceport and family fun center", 
   address: "Eagle Grove, Iowa, USA",
-  style: "port",
+  style: "spaceport",
   price: 100,
   staff: 4,
   pads: 1,
@@ -89,10 +89,10 @@ jebs = anthony.ports.create({
 })
 
 jebs.photos.create({
-  url: "assets/port/jebs.jpg"
+  url: "assets/spaceport/jebs.jpg"
 })
 
-area_51 = anthony.ports.create({
+area_51 = anthony.spaceports.create({
   name: "Area 51", 
   address: "Bald Mountain, Nevada, USA",
   style: "field",
@@ -105,5 +105,5 @@ area_51 = anthony.ports.create({
 })
 
 area_51.photos.create({
-  url: "assets/port/area_51.jpg"
+  url: "assets/spaceport/area_51.jpg"
 })

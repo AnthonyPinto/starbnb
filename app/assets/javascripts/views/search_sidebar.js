@@ -81,7 +81,7 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
   },
   
   addBrief: function (brief) {
-    var view = new Starbnb.Views.BriefPort({
+    var view = new Starbnb.Views.BriefSpaceport({
       model: brief
     });
     this.addSubview('.briefs', view);

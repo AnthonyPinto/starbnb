@@ -1,8 +1,8 @@
 /*global Starbnb*/
 
-Starbnb.Collections.Ports = Backbone.Collection.extend({
-  url: "api/ports",
-  model: Starbnb.Models.Port,
+Starbnb.Collections.Spaceports = Backbone.Collection.extend({
+  url: "api/spaceports",
+  model: Starbnb.Models.Spaceport,
   
   initialize: function () {
     this.filters = null;
@@ -10,12 +10,12 @@ Starbnb.Collections.Ports = Backbone.Collection.extend({
   
   filteredModels: function () {
     var collection = this;
-    var results = collection.filter( function (port) {
+    var results = collection.filter( function (spaceport) {
       if ( !(collection.filters.types.length === 0) &&
-        !(_.contains(collection.filters.types, port.get('style'))) ){
+        !(_.contains(collection.filters.types, spaceport.get('style'))) ){
         return false;
       }
-      var price = parseInt(port.get('price'), 10);
+      var price = parseInt(spaceport.get('price'), 10);
       if (price < collection.filters.priceLower || price > collection.filters.priceUpper){
         return false;
       }
@@ -30,23 +30,23 @@ Starbnb.Collections.Ports = Backbone.Collection.extend({
   },
   
 	getOrFetch: function (id) {
-		var port = this.get(id),
-			ports = this;
-		if (!port) {
-			port = new Starbnb.Models.Port({ id: id});
-			port.fetch({
+		var spaceport = this.get(id),
+			spaceports = this;
+		if (!spaceport) {
+			spaceport = new Starbnb.Models.Spaceport({ id: id});
+			spaceport.fetch({
 				success: function () {
-					ports.add(port);
+					spaceports.add(port);
 				},
 			});
 		} else {
-			port.fetch();
+			spaceport.fetch();
 		}
-		return port;
+		return spaceport;
 	}
   
   
   
 });
 
-Starbnb.Collections.ports =  new Starbnb.Collections.Ports();
+Starbnb.Collections.spaceports =  new Starbnb.Collections.Spaceports();

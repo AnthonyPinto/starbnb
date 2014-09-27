@@ -1,17 +1,17 @@
 /*global Starbnb*/
 
-Starbnb.Models.Port = Backbone.Model.extend({
-  urlRoot: "api/ports",
+Starbnb.Models.Spaceport = Backbone.Model.extend({
+  urlRoot: "api/spaceports",
   
   photos: function () {
     this._photos = this._photos ||
-      new Starbnb.Collections.Photos([], {port: this});
+      new Starbnb.Collections.Photos([], {spaceport: this});
     return this._photos;
   },
   
   user: function () {
     this._user = this._user ||
-      new Starbnb.Models.User([], {port: this});
+      new Starbnb.Models.User([], {spaceport: this});
     return this._user;
   },
   
@@ -41,7 +41,7 @@ Starbnb.Models.Port = Backbone.Model.extend({
     var text = '';
     var style = this.get('style');
     switch (style) {
-    case 'port':
+    case 'spaceport':
       text = 'Entire spaceport';
       break;
     case 'field':

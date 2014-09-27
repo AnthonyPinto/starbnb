@@ -1,11 +1,11 @@
-class Api::PortsController < ApplicationController
+class Api::SpaceportsController < ApplicationController
   def index
-    @ports = Port.all
+    @spaceports = Spaceport.all
     render 'index'
   end
   
   def show
-    @port = Port.find(params[:id])
+    @spaceport = Spaceport.find(params[:id])
     render "show"
   end
 
