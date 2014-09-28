@@ -8,7 +8,8 @@ Starbnb.Routers.SearchRouter = Backbone.Router.extend({
   
   routes: {
     "" : "search",
-		"spaceports/:id" : "show"
+		"spaceports/:id" : "showSpaceport",
+		"users/:id" : "showUser"
   },
   
   search: function () {
@@ -18,10 +19,17 @@ Starbnb.Routers.SearchRouter = Backbone.Router.extend({
     this._swapView(searchView);
   },
 	
-	show: function (id) {
-		var spaceport = Starbnb.Collections.spaceports.getOrFetch(1);
+	showSpaceport: function (id) {
+		var spaceport = Starbnb.Collections.spaceports.getOrFetch(id);
 		var showView = new Starbnb.Views.ShowSpaceport({model: spaceport});
-		this._swapView(showView)
+		this._swapView(showView);
+	},
+	
+	showUser: function (id) {
+		var user = new Starbnb.Models.User({id: id});
+		user.fetch();
+		var showView = new Starbnb.Views.ShowUser({model: user});
+		this._swapView(showView);
 	},
 	
   
@@ -32,7 +40,14 @@ Starbnb.Routers.SearchRouter = Backbone.Router.extend({
     this.currentView = newView;
     this.$rootEl.html(newView.render().$el);
     newView.onRender();
-  }
+  },
+	
+	_resetNav: function () {
+		var $nav = $("nav");
+		$nav.addClass('navbar-standard-mix');
+		$nav.removeClass('navbar-fixed-top');
+	}
+	
   
   
 });

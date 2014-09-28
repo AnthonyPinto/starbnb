@@ -36,7 +36,7 @@ Starbnb.Collections.Spaceports = Backbone.Collection.extend({
 			spaceport = new Starbnb.Models.Spaceport({ id: id});
 			spaceport.fetch({
 				success: function () {
-					spaceports.add(port);
+					spaceports.add(spaceport);
 				},
 			});
 		} else {

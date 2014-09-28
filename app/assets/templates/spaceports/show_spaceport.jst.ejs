@@ -1,2 +1,64 @@
-<h1><%= spaceport.escape("name") %></h1>
-<h1>SHOW PAGE</h1>
+<div class="spaceport-box">
+	<div class="spaceport-image-wrapper">
+		<% if (spaceport.photos().at(0)){ %>
+		<img 
+			src="<%= spaceport.photos().at(0).escape('url') %>"
+			class="spaceport-img">
+		<% } %>
+	</div>
+	<div class="spaceport-panel-wrapper" >
+		<div class="row spaceport-panel-row">
+			
+			<div class="col-xs-2 col-xs-offset-1">
+				<div class="row">
+					<div class="col-xs-12">
+						<div 
+						class="spaceport-user-img-frame"
+						onclick="location.href=' <%= "#/users/" + spaceport.user().escape('id') %>';">
+					  	<img src="<%= spaceport.userPhoto().escape('url') %>" class="brief-user-img">
+						</div>
+					</div>
+					<div class="col-xs-12">
+						<a>
+							<%= spaceport.user().escape("username") %>
+						</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-xs-6">
+				<div class="row">
+					<div class="col-xs-12">
+						<h4><%= spaceport.escape("name") %></h4>
+						<h5>SPACEPORT SHOW PAGE</h5>
+					</div>
+					<div class="col-xs-12">
+						<div class="row">
+							<div class="col-xs-3">
+								<p>
+									<%= spaceport.styleStr() %>
+								</p>
+							</div>
+							<div class="col-xs-3">
+								<p>
+									<%= spaceport.get("staff") + " Staff" %>
+								</p>
+							</div>
+							<div class="col-xs-3">
+								<p>
+									<%= spaceport.get("pads") + " Launchpads" %>
+								</p>
+							</div>
+							<div class="col-xs-3">
+								<p>
+									<%= spaceport.get("staff") + " Staff" %>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

@@ -16,7 +16,10 @@ Starbnb.Views.Search = Backbone.CompositeView.extend({
   },
   
   fixNav: function () {
-    $("nav").addClass('navbar-fixed-top');
+		var $nav =  $("nav")
+		$nav.removeClass('navbar-standard-mix')
+    $nav.addClass('navbar-fixed-top');
+		
   },
   
   renderMap: function () {

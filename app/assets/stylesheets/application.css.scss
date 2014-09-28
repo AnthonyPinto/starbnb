@@ -30,6 +30,45 @@ html, body, #map-canvas {
   padding: 0;
 }
 
+div.body-inner-wrapper {
+	padding: 0;
+}
+
+.spaceport-image-wrapper {
+	overflow: hidden;
+	height: 100vh;
+	width: 100%;
+}
+
+.spaceport-img {
+	width: 100%;
+	min-width: 1000px;
+}
+
+.spaceport-panel-wrapper {
+	z-index: 1;
+	position: relative;
+}
+
+.spaceport-panel-row {
+	position: absolute;
+	margin: 0;
+	height: 180px;
+	width: 100%;
+	top: -180px;
+	background-color: white;
+	padding:25px;
+}
+
+.spaceport-user-img-frame {
+  overflow: hidden;
+  width: 90px;
+  height: 90px;
+  border-radius:45px;
+	border: 2px solid white;
+	cursor: pointer;
+}
+
 div.briefs div.brief {
   padding: 6px;
 }
@@ -42,6 +81,22 @@ div.briefs div.brief {
   bottom: 30px;
   padding: 5px 10px;
   color: white; 
+}
+
+.navbar-default {
+	border: none;
+	border-bottom: 1px solid lightgrey;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+
+.navbar-standard-mix {
+	position:absolute;
+	width: 100%;
+}
+
+#bs-example-navbar-collapse-1 {
+	padding: 0 15px;
 }
 
 .brief-dollar {
@@ -66,16 +121,16 @@ div.briefs div.brief {
 
 .brief-user-img-frame{
   z-index: 1;
-  position: absolute; 
+  position: relative; 
   overflow: hidden;
   float: right;
-  bottom: -30px;
+  bottom: 80px;
   right: 15px;
   width: 60px;
   height: 60px;
   border-radius:30px;
-  
-  border: 2px solid white;
+	border: 2px solid white;
+	cursor: pointer;
 }
 
 .brief-text-wrapper {
@@ -95,8 +150,7 @@ div.briefs div.brief {
 .search-sidebar {
   margin-top: 50px;
   margin-left: 40%;
-  padding-left: 30px;
-  padding-top: 20px;
+	padding: 20px 15px 0 15px;
 }
 .search-map-frame {
   width: 40%;
@@ -128,7 +182,7 @@ div.briefs div.brief {
     width: 50%;
 }
 #dummy-x {
-    padding-top: 75%; /* 4:3 aspect ratio */
+    padding-top: 75%;
 }
 #element-x {
   overflow: hidden;
@@ -137,6 +191,6 @@ div.briefs div.brief {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: black /* show me! */
+    background-color: black
 }
 

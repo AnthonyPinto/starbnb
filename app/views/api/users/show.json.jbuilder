@@ -1,0 +1,4 @@
+
+
+
+json.( @user, :id, :username )
