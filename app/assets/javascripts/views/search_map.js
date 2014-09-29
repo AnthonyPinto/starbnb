@@ -26,8 +26,13 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
     };
     var mapView = this
     this.map = new google.maps.Map(this.$('#map-canvas')[0], mapOptions);
-    google.maps.event.addListener(this.map, 'bounds_changed', function() {
-      console.log('bounds changed');
+    google.maps.event.addListener(this.map, 'zoom_changed', function() {
+      mapView.filterResults();
+    });
+    google.maps.event.addListener(this.map, 'dragend', function() {
+      mapView.filterResults();
+    });
+    google.maps.event.addListener(this.map, 'resize', function() {
       mapView.filterResults();
     });
   },
