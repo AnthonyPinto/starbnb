@@ -32,7 +32,7 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
       _(this.markers).each( function (marker) {
         if (marker.spaceportId === id) {
           marker.setMap(null);
-          marker.icon = 'assets/marker-highlight.png'
+          marker.icon = 'assets/marker-highlight.png';
           marker.setMap(Mmap);
         }
       }) 
@@ -53,13 +53,41 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
   
   
   updateMarkers: function () {
+    var mapView = this;
     _(this.markers).each ( function (marker, index) {
       marker.setMap(null);
       marker = null;
     });
     this.markers = [];
-    view = this;
+    mapView = this;
     _(this.collection.filteredModels()).each(function(spaceport) {
+      
+      // var contentString = "" +
+      //   "<a href='#/spaceports/" + spaceport.get('id') + "'>" +
+      //     "<div class='brief-img-wrapper col-xs-12'>" +
+      //       "<div class='user-starport-price-frame'>" +
+      //         "<span class='brief-dollar price-color'><strong>$</strong></span>" +
+      //         "<h3 class='brief-price price-color'>" + spaceport.escape('price') + "</h3>" +
+      //       "</div>" +
+      //       "<div id='dummy-x'></div>" +
+      //       "<div id='element-x'>" +
+      //         "<img src='" + spaceport.photos().at(0).escape('url') + "' class='brief-img'>" +
+      //       "</div>" +
+      //     "</div>" +
+      //   "</a>"
+      
+      var contentString = "" +
+        "<a href='#/spaceports/" + spaceport.get('id') + "'>" +
+          "<img src='" + spaceport.photos().at(0).escape('url') + "' class='brief-img'>" +
+        "</a>"
+
+      var infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: 200
+      });
+      
+      
+      
       var lat = parseFloat(spaceport.get("latitude"));
       var lng = parseFloat(spaceport.get("longitude"));
       var latlng = new google.maps.LatLng(lat, lng);
@@ -71,8 +99,16 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
           icon: image,
           spaceportId: spaceport.get("id")
       })
-      view.markers.push(marker);
+      
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(Mmap,marker);
+      });
+      
+      mapView.markers.push(marker);
     })
     
-  }
+  },
+  
+  
+  
 });
