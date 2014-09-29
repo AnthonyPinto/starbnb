@@ -6,7 +6,7 @@ Starbnb.Collections.Spaceports = Backbone.Collection.extend({
   
   initialize: function () {
     this.filters = null;
-    this.listenTo(this, "sync", this.onSync)
+    this.listenTo(this, "sync", this.onSync);
   },
   
   onSync: function () {
@@ -25,12 +25,21 @@ Starbnb.Collections.Spaceports = Backbone.Collection.extend({
   filteredModels: function () {
     var collection = this;
     var results = collection.filter( function (spaceport) {
-      if ( !(collection.filters.types.length === 0) &&
-        !(_.contains(collection.filters.types, spaceport.get('style'))) ){
-        return false;
+      if (collection.filters) {
+        if ( !(collection.filters.types.length === 0) &&
+          !(_.contains(collection.filters.types, spaceport.get('style'))) ){
+          return false;
+        }
+        var price = parseInt(spaceport.get('price'), 10);
+        if (price < collection.filters.priceLower || price > collection.filters.priceUpper){
+          return false;
+        }
       }
-      var price = parseInt(spaceport.get('price'), 10);
-      if (price < collection.filters.priceLower || price > collection.filters.priceUpper){
+      var lat = parseFloat(spaceport.get("latitude"));
+      var lng = parseFloat(spaceport.get("longitude"));
+      var latlng = new google.maps.LatLng(lat, lng);
+      
+      if (collection.bounds && !collection.bounds.contains(latlng)){
         return false;
       }
       return true;
@@ -43,6 +52,11 @@ Starbnb.Collections.Spaceports = Backbone.Collection.extend({
     this.trigger("filter");
   },
   
+  setBounds: function (bounds) {
+    this.bounds = bounds;
+    this.trigger("filter");
+  },
+  
 	getOrFetch: function (id) {
 		var spaceport = this.get(id),
 			spaceports = this;
@@ -51,7 +65,7 @@ Starbnb.Collections.Spaceports = Backbone.Collection.extend({
 			spaceport.fetch({
 				success: function () {
 					spaceports.add(spaceport);
-				},
+				}
 			});
 		} else {
 			spaceport.fetch();

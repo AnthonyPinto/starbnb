@@ -24,8 +24,19 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
       center: { lat: 0, lng: 0},
       zoom: 2
     };
-    Mmap = new google.maps.Map(this.$('#map-canvas')[0], mapOptions);
+    var mapView = this
+    this.map = new google.maps.Map(this.$('#map-canvas')[0], mapOptions);
+    google.maps.event.addListener(this.map, 'bounds_changed', function() {
+      console.log('bounds changed');
+      mapView.filterResults();
+    });
   },
+  
+  filterResults: function () {
+    console.log(this.map.getBounds());
+    this.collection.setBounds(this.map.getBounds())
+  },
+  
   
   highlightMarker: function (id) {
     if (id) {
@@ -86,7 +97,7 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
       var image = 'assets/marker-standard.png';
       var marker = new google.maps.Marker({
           position: latlng,
-          map: Mmap,
+          map: mapView.map,
           title: spaceport.get("name"),
           icon: image,
           spaceportId: spaceport.get("id"),
@@ -94,8 +105,8 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
       })
       
       google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(Mmap,marker);
-        if (mapView.openWindow) {
+        infowindow.open(mapView.map,marker);
+        if (mapView.openWindow && mapView.openWindow !== infowindow) {
           mapView.openWindow.close();
         } 
         mapView.openWindow = infowindow;

@@ -3,6 +3,7 @@
 Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.collection, 'filter', this.refreshResultViews)
   },
   
   events: {
@@ -28,7 +29,6 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
       }
     });
     this.collection.setFilters(filters);
-    this.refreshResultViews();
   },
   
   refreshResultViews: function () {
