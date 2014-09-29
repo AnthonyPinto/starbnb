@@ -57,7 +57,7 @@ ul {
 
 .user-starport-price-frame {
   z-index: 1;
-  background-color: rgba(80,80,80,.8);
+  background-color: rgba(60,63,64,0.9);
   position: absolute;
   left: 0px;
   top: 15px;
@@ -79,7 +79,7 @@ html, body, #map-canvas {
 .book-button {
 	width: 100%;
 	height: 40px;
-	background-color: #ea5e66;
+	background-color: #ff7e82;
 	color: white;
 	border: none;
 	margin-top: 30px;
@@ -108,7 +108,7 @@ div.body-inner-wrapper {
 	position: absolute;
 	width: 100%;
 	height: 40px;
-	background-color: rgba(80,80,80,.8);
+	background-color: rgba(60,63,64,0.9);
 	top: -60px;
 	padding: 6px 15px;
 }
@@ -177,7 +177,7 @@ div.briefs div.brief {
 
 .brief-price-frame {
   z-index: 1;
-  background-color: rgba(80,80,80,.8);
+  background-color: rgba(60,63,64,0.9);
   position: absolute;
   left: 0px;
   bottom: 30px;

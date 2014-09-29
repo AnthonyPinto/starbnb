@@ -21,6 +21,15 @@ Starbnb.Models.Spaceport = Backbone.Model.extend({
     return this._userPhoto;
   },
   
+  hovering: function () {
+    this.trigger("hovering")
+  },
+  
+  notHovering: function () {
+    this.trigger("notHovering")
+  },
+  
+  
   parse: function (response) {
     if (response.photos) {
       this.photos().set(response.photos, { parse: true });

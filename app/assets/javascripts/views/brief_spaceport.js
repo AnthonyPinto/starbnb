@@ -7,12 +7,14 @@ Starbnb.Views.BriefSpaceport = Backbone.CompositeView.extend({
 		$('div.brief-user-img-frame').click(function(e){
 		    //your code here
 		    e.stopPropagation();
-		});
+		}.bind(this));
 	},
 	
 	
 	events: {
-		"click" : "goToShow"
+		"click" : "goToShow",
+    "mouseenter" : "hovering",
+    "mouseleave" : "notHovering"
 	},
   
   attributes: {
@@ -23,6 +25,15 @@ Starbnb.Views.BriefSpaceport = Backbone.CompositeView.extend({
     window.location= this.$("a").attr("href"); 
     return false;
 	},
+  
+  hovering: function () {
+    this.model.hovering();
+  },
+  
+  notHovering: function (e) {
+    this.model.notHovering();
+    e.stopPropagation();
+  },
 	
   
   render: function () {

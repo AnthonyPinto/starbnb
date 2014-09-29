@@ -6,6 +6,20 @@ Starbnb.Collections.Spaceports = Backbone.Collection.extend({
   
   initialize: function () {
     this.filters = null;
+    this.listenTo(this, "sync", this.onSync)
+  },
+  
+  onSync: function () {
+    _(this.models).each( function (spaceport) {
+      this.listenTo(spaceport, "hovering", function () {
+        // console.log(spaceport.escape("name"));
+        this.trigger("hovering", spaceport.get("id"));
+      });
+      this.listenTo(spaceport, "notHovering", function () {
+        // console.log(spaceport.escape("name"));
+        this.trigger("notHovering", spaceport.get("id"));
+      });
+    }.bind(this));
   },
   
   filteredModels: function () {
