@@ -77,7 +77,7 @@ cosmodrome.photos.create({
 })
 
 jebs = anthony.spaceports.create({
-  name: "Jeb's discount spaceport and family fun center", 
+  name: "Jeb's spaceport and family fun center", 
   address: "Eagle Grove, Iowa, USA",
   style: "spaceport",
   price: 100,

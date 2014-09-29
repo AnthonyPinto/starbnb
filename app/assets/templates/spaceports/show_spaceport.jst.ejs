@@ -1,105 +1,146 @@
 <div class="spaceport-box">
 	<div class="spaceport-image-wrapper">
 		<% if (spaceport.photos().at(0)){ %>
-		<img 
+			<img 
 			src="<%= spaceport.photos().at(0).escape('url') %>"
 			class="spaceport-img">
 		<% } %>
-	</div>
+	</div> <!--spaceport-image-wrapper -->
 	<div class="spaceport-panel-wrapper" >
 		<div class="row spaceport-panel-row">
-			
-			<div class="col-xs-2 col-xs-offset-1">
+			<div class="spaceport-panel-info-wrapper">
 				<div class="row">
-					<div class="col-xs-12">
-						<div 
-						class="spaceport-user-img-frame"
-						onclick="location.href=' <%= "#/users/" + spaceport.user().escape('id') %>';">
-					  	<img src="<%= spaceport.userPhoto().escape('url') %>" class="brief-user-img">
-						</div>
-					</div>
-					<div class="col-xs-12">
-						<a>
-							<%= spaceport.user().escape("username") %>
-						</a>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-xs-4">
-				<div class="row">
-					<div class="col-xs-12">
-						<h4><%= spaceport.escape("name") %></h4>
-						<h5><%= spaceport.escape("address") %></h5>
-					</div>
-					<div class="col-xs-12">
+					
+					
+					<div class="col-xs-8">
 						<div class="row">
-							<div class="col-xs-3">
-								<p>
-									<h3><span class="glyphicon glyphicon-flag"></span></h3>
-									<%= spaceport.styleStr() %>
-								</p>
-							</div>
-							<div class="col-xs-3">
-								<p>
-									<h3><span class="glyphicon glyphicon-user"></span></h3>
-									<%= spaceport.get("staff") + " Staff" %>
-								</p>
-							</div>
-							<div class="col-xs-3">
-								<p>
-									<h3><span class="glyphicon glyphicon-arrow-up"></span></h3>
-									<%= spaceport.get("pads") + " Launchpads" %>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-xs-4">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="row">
-							<div class="col-xs-9">
+							<div class="col-xs-12">
 								<div class="row">
-									<div class="col-xs-6">
-										<p>Check In</p>
-									</div>
-									<div class="col-xs-6">
-										<p>Check Out</p>
-									</div>
-									<div class="col-xs-6">
-				            <input type='text'
-				              name="space[checkIn]"
-				              class="form-control datetimepicker"
-				              placeholder="mm/dd/yyyy" 
-				              id='datetimepickerStart'>
-									</div>
-									<div class="col-xs-6">
-				            <input 
-				              name="space[checkOut]"
-				              type='text' 
-				              class="form-control datetimepicker"
-				              placeholder="mm/dd/yyyy"  
-				              id='datetimepickerEnd'>
-									</div>
+									<div class="col-xs-3">
+										<div
+											class="spaceport-user-img-frame"
+											onclick="location.href=' <%= "#/users/" + spaceport.user().escape('id') %>';">
+									  	<img src="<%= spaceport.userPhoto().escape('url') %>" class="brief-user-img">
+										</div>
+									</div> <!-- col-xs-3 -->
+									
+									<div class="col-xs-9">
+										<h3><%= spaceport.escape("name") %></h3>
+										<h5><%= spaceport.escape("address") %></h5>
+										<div class="row"> 
+											<div class="col-xs-4">
+												<span class="glyphicon glyphicon-flag"></span>
+											</div>
+											<div class="col-xs-4">
+												<span class="glyphicon glyphicon-user"></span>
+											</div>
+											<div class="col-xs-4">
+												<span class="glyphicon glyphicon-arrow-up"></span>
+											</div>
+										</div> <!--row #5.1 -->
+									</div> <!--col-xs-9 -->
+									
+								</div> <!-- row #4.1 -->
+							</div> <!-- col-xs-12 -->
+							<div class="col-xs-12">
+								<div class="row">
+									<div class="col-xs-3">
+										<p class="centered-text">
+											<%= spaceport.user().escape("username") %>
+										</p>
+									</div> <!--col-xs-3 -->
+									
+									<div class="col-xs-9">
+										<div class="row">
+											<div class="col-xs-4">
+												<p class="centered-text">
+													<%= spaceport.styleStr() %>
+												</p>
+											</div>
+											<div class="col-xs-4">
+												<p class="centered-text">
+													<%= spaceport.get("staff") + " Staff" %>
+												</p>
+											</div>
+											<div class="col-xs-4">
+												<p class="centered-text">
+													<%= spaceport.get("pads") + " Launchpads" %>
+												</p>
+											</div>
+										</div> <!--row #3.2 -->
+									</div> <!-- col-xs-9 -->
+									
+								</div> <!--row #5.1 -->
+							</div> <!-- col-xs-12 -->
+						</div> <!-- row #2.1 -->
+					</div> <!--col-xs-8 -->
+					<div class="col-xs-4">
+						<div class="row">
+							<div class="spaceport-price-wrapper">
+								<div class="spaceport-price-box">
+									<h3 class="price-color space-port-price">
+										<%= "$" + spaceport.escape("price") %>
+									</h3>
+								</div>
+								<div class="space-port-per-day-box">
+									<span class="price-color space-port-per-day">per day</span> 
 								</div>
 							</div>
-							<div class="col-xs-3">
-								<p>Staff</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12">
-						<button
-							class="book-button">
-							Book Now
-						</button>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-	</div>
-</div>
+							<div class="col-xs-12">
+								<div class="row">
+									<div class="col-xs-9">
+										<div class="row">
+											<div class="col-xs-6">
+												<p>Check In</p>
+											</div>
+											<div class="col-xs-6">
+												<p>Check Out</p>
+											</div>
+											<div class="col-xs-6">
+												<input type='text'
+												name="space[checkIn]"
+												class="form-control datetimepicker"
+												placeholder="mm/dd/yyyy" 
+												id='datetimepickerStart'>
+											</div>
+											<div class="col-xs-6">
+												<input 
+												name="space[checkOut]"
+												type='text' 
+												class="form-control datetimepicker"
+												placeholder="mm/dd/yyyy"  
+												id='datetimepickerEnd'>
+											</div>
+										</div> <!-- row #4.1 -->
+									</div> <!-- col-xs-9 -->
+									<div class="col-xs-3">
+										<p>Staff</p>
+										<input
+											type="text"
+											class="form-control"
+											placeholder="0 - <%= spaceport.escape("staff") %>"
+											>
+									</div> <!-- col-xs-4 -->
+								</div> <!-- row #3.2 -->
+							</div> <!-- col-xs-12 -->
+							
+							<div class="col-xs-12">
+								<button
+								class="book-button">
+									Book Now
+								</button>
+							</div> <!-- col-xs-12 -->
+						</div> <!-- row #2.2 -->
+					</div> <!-- col-xs-3 -->
+				</div> <!--row #1 -->
+			</div> <!--spaceport-panel-info-wrapper -->
+		</div> <!--spaceport-panel-row -->
+	</div> <!--spaceport-panel-wrapper -->
+</div>  <!--spaceport-box -->
+
+
+
+				
+
+				
+
