@@ -6,7 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-anthony = User.create!({username: "anthony", password: "111111"})
+anthony = User.create!({
+  username: "Anthony", 
+  password: "111111",
+  brief: "I am a web developer and a San Jose resident. I found myself involved in the business of spaceports rather unexpectedly during my final project at App Academy."
+
+})
 
 anthony.photos.create({
   url: "assets/user/anthony.jpg"
@@ -14,7 +19,7 @@ anthony.photos.create({
 
 app = anthony.spaceports.create({
   name: "AppAcademy", 
-  address: "1061 Market St #4, San Francisco, CA 94103",
+  address: "San Francisco, CA USA",
   style: "pad",
   price: 0,
   staff: 8,
@@ -28,7 +33,17 @@ app.photos.create({
   url: "assets/spaceport/app.jpg"
 })
 
-canaveral = anthony.spaceports.create({
+charles = User.create!({
+  username: "Charles", 
+  password: "111111",
+  brief: "As the current administrator of Nasa It is my pleasure to oversee the finest spaceports on earth. My crews and I would be happy to accomodate your next launch."
+})
+
+charles.photos.create({
+  url: "assets/user/charles.jpg"
+})
+
+canaveral = charles.spaceports.create({
   name: "Cape Canaveral Air Force Station", 
   address: "Cape Canaveral, Florida, USA",
   style: "spaceport",
@@ -44,7 +59,7 @@ canaveral.photos.create({
   url: "assets/spaceport/canaveral.jpg"
 })
 
-kennedy = anthony.spaceports.create({
+kennedy = charles.spaceports.create({
   name: "Kennedy Space Center", 
   address: "Merritt Island, Florida, USA",
   style: "field",
@@ -60,7 +75,17 @@ kennedy.photos.create({
   url: "assets/spaceport/kennedy.jpg"
 })
 
-cosmodrome = anthony.spaceports.create({
+oleg = User.create!({
+  username: "Oleg", 
+  password: "111111",
+  brief: "You have not experienced space exploration until you have experienced a Russian space program. I look forward to meeting you and sharing all that the Russian Federal Space Agency has to offer."
+})
+
+oleg.photos.create({
+  url: "assets/user/oleg.jpg"
+})
+
+cosmodrome = oleg.spaceports.create({
   name: "Baikonur Cosmodrome", 
   address: "Kazakh Steppe, Kazakhstan",
   style: "spaceport",
@@ -92,7 +117,17 @@ jebs.photos.create({
   url: "assets/spaceport/jebs.jpg"
 })
 
-area_51 = anthony.spaceports.create({
+smith = User.create!({
+  username: "Smith", 
+  password: "111111",
+  brief: "You don't know who I am, but I know who you are. I cannot go into detail here, but they will be coming for you any day now. Trust no one, and above all remember, project nova must not fail."
+})
+
+smith.photos.create({
+  url: "assets/user/smith.jpg"
+})
+
+area_51 = smith.spaceports.create({
   name: "Area 51", 
   address: "Bald Mountain, Nevada, USA",
   style: "field",

@@ -1,2 +1,23 @@
-<h1><%= user.escape("username") %></h1>
-<h1>USER SHOW PAGE</h1>
+<div class="row user-show-wrapper">
+  <div class="col-xs-3">
+    <div class="user-show-img-frame">
+      <img 
+        src="<%= user.photo().escape("url") %>"
+        class="user-show-img">
+    </div>
+    <h1>Listings</h1>
+    <div class="spaceports"></div>
+  </div>
+  <div class="col-xs-9">
+    <h1><%="Hello, I'm " + user.escape("username") + "!"%></h1>
+    <h4><%= user.escape("brief") %></h4>
+  </div>
+
+
+
+
+
+
+
+
+</div>

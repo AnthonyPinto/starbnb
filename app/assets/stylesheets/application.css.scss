@@ -37,6 +37,34 @@ ul {
   list-style-type: none;
 }
 
+.user-show-wrapper {
+  width:1045px;
+  margin: 80px auto;
+  
+}
+
+.user-show-img-frame {
+	width: 100%;
+}
+
+.user-show-img {
+	width: 100%;
+}
+
+.user-show-spaceport-frame {
+  width: 100%;
+}
+
+.user-starport-price-frame {
+  z-index: 1;
+  background-color: rgba(80,80,80,.8);
+  position: absolute;
+  left: 0px;
+  top: 15px;
+  padding: 5px 10px;
+  color: white; 
+}
+
 html, body, #map-canvas { 
   height: 100vh;
   width: 100%; 
@@ -56,6 +84,10 @@ html, body, #map-canvas {
 	border: none;
 	margin-top: 30px;
 	border-radius: 2px;
+}
+
+div.date-col {
+  padding-right: 0;
 }
 
 div.body-inner-wrapper {
@@ -158,6 +190,7 @@ div.briefs div.brief {
 	border-bottom: 1px solid lightgrey;
 	border-radius: 0;
 	margin-bottom: 0;
+  background-color: white;
 }
 
 .navbar-standard-mix {

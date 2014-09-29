@@ -15,6 +15,7 @@ end
 json.user do
   json.id @spaceport.user.id
   json.username @spaceport.user.username
+  json.brief @spaceport.user.brief
 end
 
 json.user_photo do
