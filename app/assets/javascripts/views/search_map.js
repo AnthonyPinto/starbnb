@@ -31,9 +31,8 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
     if (id) {
       _(this.markers).each( function (marker) {
         if (marker.spaceportId === id) {
-          marker.setMap(null);
-          marker.icon = 'assets/marker-highlight.png';
-          marker.setMap(Mmap);
+          marker.setIcon('assets/marker-highlight.png');
+          marker.setZIndex(google.maps.Marker.MAX_ZINDEX + 1);
         }
       }) 
     }
@@ -43,9 +42,8 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
     if (id) {
       _(this.markers).each( function (marker) {
         if (marker.spaceportId === id) {
-          marker.setMap(null);
-          marker.icon = 'assets/marker-standard.png'
-          marker.setMap(Mmap);
+          marker.setIcon('assets/marker-standard.png');
+          marker.setZIndex(marker.spaceportId);
         }
       }) 
     }
@@ -62,23 +60,17 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
     mapView = this;
     _(this.collection.filteredModels()).each(function(spaceport) {
       
-      // var contentString = "" +
-      //   "<a href='#/spaceports/" + spaceport.get('id') + "'>" +
-      //     "<div class='brief-img-wrapper col-xs-12'>" +
-      //       "<div class='user-starport-price-frame'>" +
-      //         "<span class='brief-dollar price-color'><strong>$</strong></span>" +
-      //         "<h3 class='brief-price price-color'>" + spaceport.escape('price') + "</h3>" +
-      //       "</div>" +
-      //       "<div id='dummy-x'></div>" +
-      //       "<div id='element-x'>" +
-      //         "<img src='" + spaceport.photos().at(0).escape('url') + "' class='brief-img'>" +
-      //       "</div>" +
-      //     "</div>" +
-      //   "</a>"
-      
+      //literal html because subviews do not attach properly in info windows
       var contentString = "" +
         "<a href='#/spaceports/" + spaceport.get('id') + "'>" +
           "<img src='" + spaceport.photos().at(0).escape('url') + "' class='brief-img'>" +
+          "<div class='user-starport-price-frame'>" +
+            "<span class='brief-dollar price-color'><strong>$</strong></span>" +
+            "<h3 class='brief-price price-color'>" + spaceport.escape('price') + "</h3>" +
+          "</div>" +
+          "<div>" +
+            "<h5>" + spaceport.escape("name") + "</h5>"
+          "<div>"
         "</a>"
 
       var infowindow = new google.maps.InfoWindow({
@@ -97,11 +89,16 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
           map: Mmap,
           title: spaceport.get("name"),
           icon: image,
-          spaceportId: spaceport.get("id")
+          spaceportId: spaceport.get("id"),
+          zIndex: spaceport.get("id")
       })
       
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(Mmap,marker);
+        if (mapView.openWindow) {
+          mapView.openWindow.close();
+        } 
+        mapView.openWindow = infowindow;
       });
       
       mapView.markers.push(marker);
