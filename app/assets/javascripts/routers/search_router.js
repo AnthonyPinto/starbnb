@@ -36,6 +36,7 @@ Starbnb.Routers.SearchRouter = Backbone.Router.extend({
   _swapView: function (newView) {
     if (this.currentView) {
       this.currentView.remove();
+      this._resetNav();
     }
     this.currentView = newView;
     this.$rootEl.html(newView.render().$el);
