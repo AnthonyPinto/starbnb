@@ -22,7 +22,11 @@
               id='datetimepickerEnd'>
           </div>
           <div class="col-xs-4">
-            Staff size
+            <input
+              type="number"
+              class="form-control"
+              onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+              placeholder="Staff size">
           </div>
         </div>
       </div>

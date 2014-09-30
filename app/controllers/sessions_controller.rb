@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     else
       @user = User.new(username: login_params[:username])
       flash.now[:errors] = ["Invalid Login"]
-      render :new
+      render text: request.referrer
     end
   end
 

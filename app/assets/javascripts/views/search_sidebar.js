@@ -10,9 +10,9 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
     "set #price-slider" : "updateResults",
     "change .checkbox-choice" : "updateResults",
     "dp.change #datetimepickerStart" : "setStartDate",
-    "input #datetimepickerStart" : "setStartDate",
-    "input #datetimepickerEnd" : "setEndDate",
-    "db.change #datetimepickerEnd" : "setEndDate",
+    "blur #datetimepickerStart" : "setStartDate",
+    "dp.change #datetimepickerEnd" : "setEndDate",
+    "blur #datetimepickerEnd" : "setEndDate",
   },
   
   
@@ -32,13 +32,11 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
   },
 
   setEndDate: function (event) {
-    debugger
     var endStr = $(event.currentTarget).val();
     var startPicker = $("#datetimepickerStart")
     var startStr = startPicker.val()
     var startDate = new Date(startStr);
     var endDate = new Date(endStr);
-    debugger
     if ((!startStr) || endDate <= startDate) {
       startDate = endDate;
       startDate.setDate(endDate.getDate() - 1);
