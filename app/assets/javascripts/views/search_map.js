@@ -38,7 +38,6 @@ Starbnb.Views.Map = Backbone.CompositeView.extend({
   },
   
   filterResults: function () {
-    console.log(this.map.getBounds());
     this.collection.setBounds(this.map.getBounds())
   },
   

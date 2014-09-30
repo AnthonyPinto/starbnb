@@ -8,11 +8,44 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
   
   events: {
     "set #price-slider" : "updateResults",
-    "change .checkbox-choice" : "updateResults"
+    "change .checkbox-choice" : "updateResults",
+    "dp.change #datetimepickerStart" : "setStartDate",
+    "input #datetimepickerStart" : "setStartDate",
+    "input #datetimepickerEnd" : "setEndDate",
+    "db.change #datetimepickerEnd" : "setEndDate",
   },
   
   
   template: JST["search_sidebar"],
+  
+  setStartDate: function (event) {
+    var startStr = $(event.currentTarget).val();
+    var endPicker = $("#datetimepickerEnd")
+    var endStr = endPicker.val()
+    var startDate = new Date(startStr);
+    var endDate = new Date(endStr);
+    if ((!endStr) || endDate <= startDate) {
+      endDate = startDate;
+      endDate.setDate(startDate.getDate() + 1);
+      endPicker.val((endDate.getMonth() + 1) + '/' + endDate.getDate() + '/' +  endDate.getFullYear());
+    }
+  },
+
+  setEndDate: function (event) {
+    debugger
+    var endStr = $(event.currentTarget).val();
+    var startPicker = $("#datetimepickerStart")
+    var startStr = startPicker.val()
+    var startDate = new Date(startStr);
+    var endDate = new Date(endStr);
+    debugger
+    if ((!startStr) || endDate <= startDate) {
+      startDate = endDate;
+      startDate.setDate(endDate.getDate() - 1);
+      startPicker.val((startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' +  startDate.getFullYear());
+    }
+  },
+  
   
   updateResults: function () {
     var filters = {
