@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root to: "static_pages#index"
   
-  get '/home', to: 'static_pages#home'
+  get '/splash', to: 'static_pages#splash'
   
-  resource :session, only: [:new, :create, :destroy]
+  resource :session, only: [:create, :destroy]
   
-  resources :users 
+  resources :users, only: [:create, :destroy] 
   
   namespace :api, defaults: {format: :json }do
     resources :spaceports, only: [:create, :destroy, :show, :index]

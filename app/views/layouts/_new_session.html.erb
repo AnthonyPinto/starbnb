@@ -1,7 +1,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="newSessionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -14,28 +14,26 @@
           name="authenticity_token"
           value="<%= form_authenticity_token %>">
         <div class="modal-body">
-
-    
-          <div class="form-group" id="login-field-wrapper">
-            <label for="user-username">Username</label>  
-            <input
-              class="form-control"
-              id="user-username"
-              type="text"
-              name="user[username]"
-              value="">
+          <div class="row">
+            <div class="col-xs-7 col-xs-offset-2">
+              <div class="form-group" id="login-field-wrapper">
+                <label for="login-username">Username</label>  
+                <input
+                  class="form-control"
+                  id="login-username"
+                  type="text"
+                  name="user[username]"
+                  value="">
   
-            <label for="user-password">Password</label>
-            <input
-              class="form-control"
-              id="user-password"
-              type="password"
-              name="user[password]">
+                <label for="login-password">Password</label>
+                <input
+                  class="form-control"
+                  id="login-password"
+                  type="password"
+                  name="user[password]">
+              </div>
+            </div>
           </div>
-    
-
-  
-
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

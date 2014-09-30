@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     else
       @user = User.new(username: login_params[:username])
       flash.now[:errors] = ["Invalid Login"]
-      render text: request.referrer
+      render "static_pages/splash"
     end
   end
 
@@ -22,7 +22,8 @@ class SessionsController < ApplicationController
     @user = current_user
     @user.reset_session_token!
     session[:session_token] = nil
-    redirect_to new_session_url
+    flash[:successes] = ["Successfully logged off"]
+    redirect_to "/splash"
   end
   
   def login_params

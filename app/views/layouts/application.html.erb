@@ -7,22 +7,24 @@
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  
-
-  
 </head>
+<script type="text/javascript"
+  src="//api.filepicker.io/v1/filepicker.js">
+</script>
 <body>
-<%= render "layouts/new_user" %>
-<%= render "layouts/new_session" %>
-
-
-<div class="body-inner-wrapper container-fluid">
-<%= render "layouts/nav" %> 
-
-<% flash.each do |type, msgs| %>
-  <h3><%= type %></h3>
-  <% msgs.each do |msg|%>
-    <p><%= msg %></p>
+  
+<script>
+  filepicker.setKey("<%= ENV['FILEPICKER_KEY'] %>");
+</script>
+<div class="body-wrapper container-fluid">
+<% if flash["errors"] %>
+  <% flash["errors"].each do |msg| %>
+  <div class="alert alert-warning"><%= msg %></div>
+  <% end %>
+<% end %>
+<% if flash["successes"] %>
+  <% flash["successes"].each do |msg| %>
+    <div class="alert alert-success"><%= msg %></div>
   <% end %>
 <% end %>
 

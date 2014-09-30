@@ -13,6 +13,8 @@ gem 'spring',        group: :development
 gem 'newrelic_rpm'
 gem "backbone-on-rails"
 
+gem "figaro"
+
 gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'momentjs-rails', '>= 2.8.1'

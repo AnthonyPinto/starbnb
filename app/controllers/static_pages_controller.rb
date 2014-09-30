@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
-  def home
+  before_action :require_login, only: :index
+  
+  def splash
     
   end
   

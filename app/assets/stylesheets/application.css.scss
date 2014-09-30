@@ -29,6 +29,21 @@ a, p, h1, h2, h3, h4, h5, h6, span {
 	color: white;
 }
 
+.alert {
+  position: absolute;
+  z-index: 2;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 50px;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 2s ease-in;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 }
@@ -36,6 +51,26 @@ h1, h2, h3, h4, h5, h6 {
 ul {
   list-style-type: none;
 }
+
+.new-user-img-frame {
+  width:200px;
+}
+
+.new-user-img-button {
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  border-radius: 0;
+  border: none;
+  background-color:#ff7e82;
+  margin-bottom: 15px;
+}
+
+.new-user-img {
+  width: 100%;
+}
+
+
 
 .user-show-wrapper {
   width:1045px;
@@ -90,7 +125,7 @@ div.date-col {
   padding-right: 0;
 }
 
-div.body-inner-wrapper {
+div.body-wrapper {
 	padding: 0;
 }
 

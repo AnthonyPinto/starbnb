@@ -1,9 +1,11 @@
+<%= render "layouts/nav" %> 
+
 <div id="index-wrapper"></div>
 
 <script>$(Starbnb.initialize);</script>
 
 <script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAf6K_Be93YRHvZg1uR8PAJSDTwJcNTX0">
+  src='<%= "https://maps.googleapis.com/maps/api/js?key=" + ENV["GOOGLE_KEY"] %>' >
 </script>
 
 
