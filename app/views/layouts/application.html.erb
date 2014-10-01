@@ -7,6 +7,12 @@
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  
+  <% if logged_in? %>
+    <script type="text/javascript">
+    window.CURRENT_USER_ID = <%= current_user.id %>
+    </script>
+  <% end %>
 </head>
 <script type="text/javascript"
   src="//api.filepicker.io/v1/filepicker.js">

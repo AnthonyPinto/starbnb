@@ -3,11 +3,54 @@
 Starbnb.Views.NewSpaceport = Backbone.CompositeView.extend({
   template: JST["spaceports/new_spaceport"],
   
+  events: {
+    "click #new-img-button": "firePicker",
+    "click #new-spaceport-submit" : "trySubmit"
+  },
+  
   render: function () {
     var content = this.template({spaceport: this.model});
     this.$el.html(content);
     this.marker = null;
     return this;
+  },
+  
+  trySubmit: function (event) {
+    event.preventDefault();
+    var attributes = this.$('form').serializeJSON();
+    attributes.spaceport.latitude = this.$("#new-spaceport-latitude").html();
+    attributes.spaceport.longitude = this.$("#new-spaceport-latitude").html();
+    attributes.spaceport.user_id = window.CURRENT_USER_ID;
+    this.model.set(attributes);
+    var view = this;
+    this.model.save(
+      {},
+      {
+        success: function (model) {
+          view.createPhoto(model.escape("id"));
+        },
+        error: function () {
+          view.$(".has-error").addClass("problem-field");
+        }
+      }
+    );
+  },
+  
+  createPhoto: function (spaceport_id) {
+    var photo = new Starbnb.Models.Photo();
+    photo.set({
+      url: this.$(".new-spaceport-img").attr("src"),
+      photable_type: "Spaceport",
+      photable_id: spaceport_id
+    })
+    photo.save(
+      {},
+      {
+        success: function () {
+          document.location.href= ("/#/spaceports/" + spaceport_id);
+        }
+      }
+    )
   },
   
   onRender: function () {
@@ -31,6 +74,20 @@ Starbnb.Views.NewSpaceport = Backbone.CompositeView.extend({
       }
       mapView.updateCoords();
     });
+  },
+  
+  firePicker: function (event) {
+    view = this;
+    event.preventDefault();
+    filepicker.pick( {
+          mimetypes: ['image/*'],
+        },
+    
+      function(Blob){
+        console.log(Blob.url);
+        view.$(".new-spaceport-img").attr("src", Blob.url);
+      }
+    );
   },
   
   updateCoords: function () {

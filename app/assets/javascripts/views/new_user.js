@@ -10,7 +10,7 @@ Starbnb.Views.NewUser = Backbone.CompositeView.extend({
   
   
   events: {
-    "click #new-user-img-button": "firePicker",
+    "click #new-img-button": "firePicker",
     "keyup #new-user-username" : "checkName",
     "keyup #new-user-password" : "checkPassword",
     "click #new-user-submit" : "trySubmit"

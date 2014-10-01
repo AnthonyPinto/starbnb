@@ -9,18 +9,28 @@ class Api::SpaceportsController < ApplicationController
     render "show"
   end
 
-  def new
-  end
-
   def create
-  end
+    @spaceport = Spaceport.new(spaceport_params)
 
-  def edit
+    if @spaceport.save
+      render json: @spaceport
+    else
+      render json: @spaceport.errors.full_messages, status: :unprocessable_entity
+    end
   end
-
-  def update
-  end
-
-  def destroy
+  
+  def spaceport_params 
+    params.require(:spaceport).permit(
+      :name, 
+      :address, 
+      :user_id, 
+      :style, 
+      :price, 
+      :staff, 
+      :pads, 
+      :description, 
+      :latitude, 
+      :longitude
+    )
   end
 end
