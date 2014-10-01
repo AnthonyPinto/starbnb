@@ -38,6 +38,10 @@ a, p, h1, h2, h3, h4, h5, h6, span {
   width:100%;
 }
 
+span.form-control {
+  background-color: lightgrey;
+}
+
 .alert {
   position: absolute;
   z-index: 2;
@@ -65,7 +69,7 @@ ul {
   width:200px;
 }
 
-#new-user-img-button {
+#new-img-button {
   width: 100%;
   color: white;
   font-weight: bold;
@@ -84,7 +88,6 @@ ul {
 .user-show-wrapper {
   width:1045px;
   margin: 80px auto;
-  
 }
 
 .user-show-img-frame {
@@ -109,12 +112,21 @@ ul {
   color: white; 
 }
 
-html, body, #map-canvas { 
+#map-canvas { 
   height: 100vh;
   width: 100%; 
   margin: 0; 
   padding: 0;
 }
+
+#new-map-canvas { 
+  height: 100%;
+  width: 100%; 
+  margin: 0; 
+  padding: 0;
+}
+
+
 
 .centered-text {
 	text-align: center;
@@ -144,9 +156,27 @@ div.body-wrapper {
 	font-size: 3em;
 }
 
-//.staff-field {
-//	width: 100%;
-//}
+.spaceport-new-wrapper {
+  width:1045px;
+  margin: 80px auto;
+}
+
+.new-spaceport-img-wrapper {
+  width: 100%;
+}
+
+.new-spaceport-img {
+  width: 100%;
+}
+
+.new-spaceport-map-frame {
+  height: 400px;
+  cursor: crosshair; 
+}
+
+#new-spaceport-submit {
+  width: 100%;
+}
 
 .spaceport-price-wrapper {
 	position: absolute;

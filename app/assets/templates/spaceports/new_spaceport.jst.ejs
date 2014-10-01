@@ -1,0 +1,154 @@
+<div class="row spaceport-new-wrapper">
+  <div class="row">
+    <div class="col-xs-12">
+      
+    </div>
+  </div>
+  
+  
+  
+  <form>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <h2>New Spaceport</h2>
+          <div class="new-spaceport-img-wrapper">
+            <img
+              class="new-spaceport-img"
+              src="assets/spaceport/default.jpg">
+              <button
+                id="new-img-button"
+                class="btn btn-default">
+                Select Spaceport Photo
+              </button>
+          </div>
+        <div class="form-group">
+          <span class="help-block-name help-block"></span>
+          <label 
+            class="control-label" 
+            for="new-spaceport-name">Spaceport Name</label>  
+          <input
+            class="form-control"
+            id="new-spaceport-name"
+            type="text"
+            name="spaceport[name]"
+            value="">
+        </div>
+        
+        <div class="form-group">
+          <span class="help-block-address help-block"></span>
+          <label 
+            class="control-label" 
+            for="new-spaceport-address">Address</label>  
+          <input
+            class="form-control"
+            id="new-spaceport-address"
+            type="text"
+            name="spaceport[address]"
+            value="">
+        </div>
+  
+        <div class="form-group">
+          <span class="help-block-style help-block"></span>
+          <label 
+            class="control-label" 
+            for="new-spaceport-style">Spaceport Rental Type</label>
+          <select class="form-control">
+            <option value="" disabled selected>Select type</option>
+            <option>Entire Spaceport</option>
+            <option>Private Launch Site</option>
+            <option>Shared Launch Site</option>
+          </select>
+        </div>
+  
+        <div class="row">
+          
+          <div class="col-xs-4">
+            <div class="form-group">
+              <span class="help-block-pads help-block"></span>
+              <label 
+                class="control-label" 
+                for="new-spaceport-pads">Launchpads</label>
+              <input
+                type="number"
+                id="new-spaceport-pads"
+                class="form-control"
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+            </div>
+          </div>
+          
+          <div class="col-xs-4">
+            <div class="form-group">
+              <span class="help-block-staff help-block"></span>
+              <label 
+                class="control-label" 
+                for="new-spaceport-staff">Staff Count</label>
+              <input
+                type="number"
+                id="new-spaceport-staff"
+                class="form-control"
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+            </div>
+          </div>
+          
+          <div class="col-xs-4">
+            <div class="form-group">
+              <span class="help-block-price help-block"></span>
+              <label 
+                class="control-label" 
+                for="new-spaceport-price">Daily Price</label>
+              <input
+                type="number"
+                id="new-spaceport-price"
+                class="form-control"
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+            </div>
+          </div>
+          <h3>Select Spaceport Location</h3>
+          <div class="new-spaceport-map-frame">
+            <div id="new-map-canvas"></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <span class="help-block-latitude help-block"></span>
+                <label 
+                  class="control-label" 
+                  for="new-spaceport-latitude">Latitude</label>
+                <span
+                  type="number"
+                  id="new-spaceport-latitude"
+                  class="form-control"
+                  onkeypress="return event.charCode === 190" ></span>
+              </div>
+            </div>
+          
+            <div class="col-xs-6">
+              <div class="form-group">
+                <span class="help-block-longitude help-block"></span>
+                <label 
+                  class="control-label" 
+                  for="new-spaceport-longitude">Longitude</label>
+                <span
+                  type="number"
+                  id="new-spaceport-longitude"
+                  class="form-control"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"></span>
+              </div>
+            </div>
+          
+          <div class="col-xs-12">
+            <input
+              id="new-spaceport-submit"
+              class="btn btn-primary"
+              type="submit"
+              value="Submit">
+          </div>
+        </div>
+        
+      </div> 
+    
+    </div>
+  </form>
+  
+
+</div>
