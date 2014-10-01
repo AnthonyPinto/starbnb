@@ -30,14 +30,33 @@ Starbnb.Views.NewUser = Backbone.CompositeView.extend({
     this.model.save(
       {},
       {
-      success: function () {
-        document.location.href="/";
-      },
-      error: function (model, response, options) {
-        view.$(".has-error").addClass("problem-field");
+        success: function (model) {
+          view.createAvatar(model.escape("id"));
+        },
+        error: function () {
+          view.$(".has-error").addClass("problem-field");
+        }
       }
-    });
+    );
   },
+  
+  createAvatar: function (user_id) {
+    var avatar = new Starbnb.Models.Photo();
+    avatar.set({
+      url: this.$(".new-user-img").attr("src"),
+      photable_type: "User",
+      photable_id: user_id
+    })
+    avatar.save(
+      {},
+      {
+        success: function () {
+          document.location.href="/";
+        }
+      }
+    )
+  },
+  
   
   buildNames: function () {
     this.usersLoaded = true;

@@ -27,8 +27,10 @@
             name="user[username]"
             value="">
         </div>
-        <div class="form-group" id="new-user-password-group">
-          <span class="help-block-password help-block"></span>
+        <div class="form-group has-error" id="new-user-password-group">
+          <span class="help-block-password help-block">
+            Password must be at least 6 characters
+          </span>
           <label for="new-user-password">Password</label>
           <input
             class="form-control"
