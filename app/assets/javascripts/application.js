@@ -14,6 +14,7 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require jquery.nouislider.all
+//= require jquery.serializejson.min.js
 //= require moment
 //= require bootstrap-datetimepicker
 //= require underscore

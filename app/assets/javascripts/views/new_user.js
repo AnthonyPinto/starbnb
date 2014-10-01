@@ -5,13 +5,14 @@ Starbnb.Views.NewUser = Backbone.CompositeView.extend({
   
   initialize: function () {
     this.usersLoaded = false;
-    this.listenTo(this.collection, "sync", this.buildNames)
+    this.listenTo(this.collection, "sync", this.buildNames);
   },
   
   
   events: {
     "click #new-user-img-button": "firePicker",
     "keyup #new-user-username" : "checkName",
+    "keyup #new-user-password" : "checkPassword",
     "click #new-user-submit" : "trySubmit"
   },
 	
@@ -22,6 +23,22 @@ Starbnb.Views.NewUser = Backbone.CompositeView.extend({
     return this;
   },
   
+  trySubmit: function (event) {
+    event.preventDefault();
+    this.model.set(this.$('form').serializeJSON());
+    var view = this;
+    this.model.save(
+      {},
+      {
+      success: function () {
+        document.location.href="/";
+      },
+      error: function (model, response, options) {
+        view.$(".has-error").addClass("problem-field");
+      }
+    });
+  },
+  
   buildNames: function () {
     this.usersLoaded = true;
     this.names = this.collection.pluck("username");
@@ -30,30 +47,56 @@ Starbnb.Views.NewUser = Backbone.CompositeView.extend({
   
   
   checkName: function (event) {
-    console.log("checkName")
+    console.log("checkName");
     if (this.usersLoaded) {
       var $input = $(event.currentTarget);
       var currentName = $input.val();
       var index = $.inArray(currentName, this.names);
       if (index !== -1) {
-        this.addWarning($input);
+        this.addNameWarning($input);
       } else {
-        this.removeWarning($input);
+        this.removeNameWarning($input);
       }
     }
   },
   
-  addWarning: function ($input) {
-    console.log("add warning")
-    this.$("#new-user-username-group").addClass("has-error has-feedback")
-    this.$(".help-block").html("That username is taken")
+  addNameWarning: function ($input) {
+    console.log("add warning");
+    this.$("#new-user-username-group").addClass("has-error");
+    this.$(".help-block-username").html("That username is taken");
   },
   
-  removeWarning: function ($input) {
-    console.log("remove warning")
-    this.$("#new-user-username-group").removeClass("has-error")
-    this.$("#new-user-username-group").removeClass("has-feedback")
-    this.$(".help-block").html("")
+  removeNameWarning: function ($input) {
+    console.log("remove warning");
+    this.$("#new-user-username-group").removeClass("has-error");
+    this.$("#new-user-username-group").removeClass("problem-field");
+    this.$(".help-block-username").html("");
+  },
+  
+  
+  
+  checkPassword: function (event) {
+    console.log("checkPassword");
+    var $input = $(event.currentTarget);
+    var currentPassword = $input.val();
+    if (currentPassword.length < 6) {
+      this.addPasswordWarning($input);
+    } else {
+      this.removePasswordWarning($input);
+    }
+  },
+  
+  addPasswordWarning: function ($input) {
+    console.log("add warning");
+    this.$("#new-user-password-group").addClass("has-error");
+    this.$(".help-block-password").html("Password must be at least 6 characters");
+  },
+  
+  removePasswordWarning: function ($input) {
+    console.log("remove warning");
+    this.$("#new-user-password-group").removeClass("has-error");
+    this.$("#new-user-password-group").removeClass("problem-field");
+    this.$(".help-block-password").html("");
   },
   
   
