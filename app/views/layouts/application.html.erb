@@ -12,10 +12,6 @@
   src="//api.filepicker.io/v1/filepicker.js">
 </script>
 <body>
-  
-<script>
-  filepicker.setKey("<%= ENV['FILEPICKER_KEY'] %>");
-</script>
 <div class="body-wrapper container-fluid">
 <% if flash["errors"] %>
   <% flash["errors"].each do |msg| %>
@@ -34,5 +30,10 @@
 
 </div>
 
+<script>
+  $( function () {
+    filepicker.setKey("<%= ENV['FILEPICKER_KEY'] %>");
+  })
+</script>
 </body>
 </html>

@@ -1,0 +1,57 @@
+<form>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-xs-5">
+        <div class="new-user-img-frame">
+        <img
+          class="new-user-img"
+          src="assets/user/guest.jpg">
+
+        <input 
+          type="filepicker"
+          data-fp-mimetype="image/*" 
+          name="myName"
+          class="btn btn-default new-user-img-button"
+          data-fp-button-text="Select User Photo" >
+        </div>
+      </div>
+      <div class= "col-xs-7">
+        <div class="form-group">
+          <label for="new-user-username">Username</label>  
+          <input
+            class="form-control"
+            id="new-user-username"
+            type="text"
+            name="user[username]"
+            value="">
+
+          <label for="new-user-password">Password</label>
+          <input
+            class="form-control"
+            id="new-user-password"
+            type="password"
+            name="user[password]">
+        </div>
+        <div class="form-group">
+          <label for="new-user-brief">A little about you...</label>  
+          <textarea
+            class="form-control"
+            id="new-user-brief"
+            name="user[brief]"
+            rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button 
+      type="button" 
+      class="btn btn-default" 
+      data-dismiss="modal">Close</button>
+    <input 
+      class="btn btn-primary"
+      type="submit"
+      value="Submit">
+  </div>
+</form>
+    
