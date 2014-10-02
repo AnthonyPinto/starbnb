@@ -23,7 +23,18 @@ class User < ActiveRecord::Base
   
   has_many :spaceports
   
-  has_many :photos, as: :photable 
+  has_many(
+    :authored_comments,
+    class_name: "Comment",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+  
+  has_many :comments, as: :commentable
+  
+  has_many :photos, as: :photable
+  
+
   
   def self.generate_session_token
     return SecureRandom.urlsafe_base64
