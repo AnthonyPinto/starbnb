@@ -33,6 +33,10 @@ a, p, h1, h2, h3, h4, h5, h6, span {
 	color: white;
 }
 
+.spaceport-heading {
+  margin-top:0;
+}
+
 .help-block {
   height:16px;
   width:100%;
@@ -64,6 +68,33 @@ h1, h2, h3, h4, h5, h6 {
 ul {
   list-style-type: none;
 }
+
+.description-wrapper {
+  width: 100%;
+  background-color: #E8E8E8;
+  border: 1px rgb(220, 224, 224) solid;
+}
+
+.comments-wrapper {
+  background-color: #f5f5f5;
+  border: 1px rgb(220, 224, 224) solid;
+}
+
+.comment-user-img-frame {
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  border-radius:25px;
+	border: 2px solid white;
+	cursor: pointer;
+	margin: auto;
+}
+
+.spaceport-comment-button {
+  width: 100%;
+  height: 74px;
+}
+
 
 .new-user-img-frame {
   width:200px;
@@ -218,7 +249,7 @@ div.body-wrapper {
 
 .spaceport-img {
 	width: 100%;
-	min-width: 1000px;
+	min-width: 1069px;
 }
 
 .spaceport-panel-wrapper {

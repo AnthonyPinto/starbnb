@@ -12,6 +12,16 @@ json.photos @spaceport.photos do |photo|
   json.updated_at photo.updated_at
 end
 
+json.comments @spaceport.comments do |comment|
+  json.id comment.id
+  json.user_id comment.user_id
+  json.body comment.body
+  json.commentable_id comment.commentable_id
+  json.commentable_type comment.commentable_type
+  json.photo_url comment.user.photos.first.url
+  json.username comment.user.username
+end
+
 json.user do
   json.id @spaceport.user.id
   json.username @spaceport.user.username
@@ -26,3 +36,4 @@ json.user_photo do
   json.created_at @spaceport.user.photos.first.created_at
   json.updated_at @spaceport.user.photos.first.updated_at
 end
+

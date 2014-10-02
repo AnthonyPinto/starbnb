@@ -24,5 +24,6 @@ class Spaceport < ActiveRecord::Base
    
   belongs_to :user
   
-  has_many :photos, as: :photable 
+  has_many :photos, as: :photable
+  has_many :comments, as: :commentable 
 end

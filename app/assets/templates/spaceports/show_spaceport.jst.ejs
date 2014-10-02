@@ -25,7 +25,9 @@
 									</div> <!-- col-xs-3 -->
 									
 									<div class="col-xs-9">
-										<h3><%= spaceport.escape("name") %></h3>
+										<h3 class="spaceport-heading">
+                      <%= spaceport.escape("name") %>
+                    </h3>
 										<h5><%= spaceport.escape("address") %></h5>
 										<div class="row"> 
 											<div class="col-xs-4">
@@ -45,27 +47,27 @@
 							<div class="col-xs-12">
 								<div class="row">
 									<div class="col-xs-3">
-										<p class="centered-text">
+										<h4 class="centered-text">
 											<%= spaceport.user().escape("username") %>
-										</p>
+                    </h4>
 									</div> <!--col-xs-3 -->
 									
 									<div class="col-xs-9">
 										<div class="row">
 											<div class="col-xs-4">
-												<p class="centered-text">
+												<h4 class="centered-text">
 													<%= spaceport.styleStr() %>
-												</p>
+                        </h4>
 											</div>
 											<div class="col-xs-4">
-												<p class="centered-text">
+												<h4 class="centered-text">
 													<%= spaceport.get("staff") + " Staff" %>
-												</p>
+                        </h4>
 											</div>
 											<div class="col-xs-4">
-												<p class="centered-text">
+												<h4 class="centered-text">
 													<%= spaceport.get("pads") + " Launchpads" %>
-												</p>
+                        </h4>
 											</div>
 										</div> <!--row #3.2 -->
 									</div> <!-- col-xs-9 -->
@@ -137,8 +139,42 @@
 		</div> <!--spaceport-panel-row -->
 	</div> <!--spaceport-panel-wrapper -->
 </div>  <!--spaceport-box -->
+<div class="comments-wrapper">
+  <div class="spaceport-panel-info-wrapper">
+    <div class="row">
+      <div class="col-xs-8">
+        <h4>Spaceport Description:</h4>
+        <div class="description-wrapper">
+          <p><%= spaceport.escape("description") %></p>
+        </div>
+        <h3 class="centered-text">Comments</h3>
+        <div class="description-wrapper">
+          <div class="comments"></div>
 
-
+          <form role="form">
+            <div class="row">
+              <div class="col-xs-10" >
+                <textarea 
+                  id="spaceport-comment-field"
+                  class="form-control"
+                  placeholder="Add Comment" 
+                  rows="3"></textarea>
+              </div>
+              <div class="col-xs-2">
+                <button 
+                  type="submit" 
+                  class="btn btn-primary spaceport-comment-button">
+                    Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
 				
 

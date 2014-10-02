@@ -9,6 +9,12 @@ Starbnb.Models.Spaceport = Backbone.Model.extend({
     return this._photos;
   },
   
+  comments: function () {
+    this._comments = this._comments ||
+      new Starbnb.Collections.Comments([], {spaceport: this});
+    return this._comments;
+  },
+  
   user: function () {
     this._user = this._user ||
       new Starbnb.Models.User([], {spaceport: this});
@@ -34,6 +40,10 @@ Starbnb.Models.Spaceport = Backbone.Model.extend({
     if (response.photos) {
       this.photos().set(response.photos, { parse: true });
       delete response.photos;
+    }
+    if (response.comments) {
+      this.comments().set(response.comments, { parse: true });
+      delete response.comments;
     }
     if (response.user) {
       this.user().set(response.user);

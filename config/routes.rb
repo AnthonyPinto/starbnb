@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :spaceports, only: [:create, :destroy, :show, :index]
     resources :users, only: [:show, :index, :create]
     resources :photos, only: [:create]
+    resources :comments, only: [:create]
   end
 
 end
