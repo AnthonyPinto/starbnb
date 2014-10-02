@@ -3,15 +3,8 @@
 Starbnb.Views.BriefSpaceport = Backbone.CompositeView.extend({
   template: JST["spaceports/brief_spaceport"],
 	
-	initialize: function () {
-		$('div.brief-user-img-frame').click(function(e){
-		    //your code here
-		    e.stopPropagation();
-		}.bind(this));
-	},
-	
-	
 	events: {
+    "click .brief-user-img-frame" : "goToUser",
 		"click" : "goToShow",
     "mouseenter" : "hovering",
     "mouseleave" : "notHovering"
@@ -21,10 +14,15 @@ Starbnb.Views.BriefSpaceport = Backbone.CompositeView.extend({
     "class": "brief col-sm-12 col-md-6 col-lg-4",
   },
 	
-	goToShow: function (args) {
-    window.location= this.$("a").attr("href"); 
-    return false;
+	goToShow: function () {
+    Backbone.history.navigate("spaceports/" + this.model.escape("id"), {trigger: true});
 	},
+  
+  goToUser: function (event) {
+    event.stopPropagation();
+    Backbone.history.navigate("users/" + this.model.escape("user_id"), {trigger: true});
+  },
+  
   
   hovering: function () {
     this.model.hovering();
