@@ -21,6 +21,11 @@ Starbnb.Views.ShowSpaceport = Backbone.CompositeView.extend({
     this.$('.datetimepicker').datetimepicker({
       pickTime: false
     });
+    var now = new Date();
+    var tomorrow = new Date();
+    tomorrow.setDate(now.getDate() + 1);
+    this.$('#datetimepickerStart').data("DateTimePicker").setMinDate(now)
+    this.$('#datetimepickerEnd').data("DateTimePicker").setMinDate(tomorrow)
   },
   
   createComment: function () {

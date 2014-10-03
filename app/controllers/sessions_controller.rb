@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if @user
       login!(@user) 
       flash[:successes] = ["Welcome back #{@user.username}!"]
-      redirect_to :root
+      redirect_to "/index"
     else
       @user = User.new(username: login_params[:username])
       flash.now[:errors] = ["Invalid Login"]
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     @user.reset_session_token!
     session[:session_token] = nil
     flash[:successes] = ["Successfully logged off"]
-    redirect_to "/splash"
+    redirect_to ""
   end
   
   def login_params

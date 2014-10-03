@@ -17,6 +17,7 @@ Starbnb.Views.NewSpaceport = Backbone.CompositeView.extend({
   
   trySubmit: function (event) {
     event.preventDefault();
+    window.removeAlertDivs();
     var attributes = this.$('form').serializeJSON();
     attributes.spaceport.latitude = this.$("#new-spaceport-latitude").html();
     attributes.spaceport.longitude = this.$("#new-spaceport-longitude").html();
@@ -29,8 +30,15 @@ Starbnb.Views.NewSpaceport = Backbone.CompositeView.extend({
         success: function (model) {
           view.createPhoto(model.escape("id"));
         },
-        error: function () {
-          view.$(".has-error").addClass("problem-field");
+        error: function (model, response) {
+          var $form = this.$(".form-alerts");
+          _(response.responseJSON).each( function (message) {
+            
+            var $alert = $("<div class='alert alert-warning'></div>");
+            $alert.html(message);
+            $form.prepend($alert);
+            window.scrollTo(0,0)
+          });
         }
       }
     );
@@ -47,8 +55,9 @@ Starbnb.Views.NewSpaceport = Backbone.CompositeView.extend({
       {},
       {
         success: function () {
-          document.location.href= ("/#/spaceports/" + spaceport_id);
-        }
+          document.location.href= ("/index#spaceports/" + spaceport_id);
+        },
+        
       }
     )
   },

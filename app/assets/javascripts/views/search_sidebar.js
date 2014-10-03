@@ -9,6 +9,7 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
   events: {
     "set #price-slider" : "updateResults",
     "change .checkbox-choice" : "updateResults",
+    "change #staff-input" : "updateResults",
     "dp.change #datetimepickerStart" : "setStartDate",
     "blur #datetimepickerStart" : "setStartDate",
     "dp.change #datetimepickerEnd" : "setEndDate",
@@ -46,13 +47,23 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
   
   
   updateResults: function () {
+    var $priceUpper = this.$("#price-upper");
+    var $priceLower = this.$("#price-lower");
+    if ($priceUpper.val() === "10000") {
+      $priceUpper.val("10000+")
+    }
     var filters = {
-      priceUpper: parseInt($("#price-upper").val(), 10),
-      priceLower: parseInt($("#price-lower").val(), 10),
-      checkIn: $("#datetimepickerStart").val(),
-      checkOut: $("#datetimepickerEnd").val(),
+      priceUpper: parseInt($priceUpper.val(), 10),
+      priceLower: parseInt($priceLower.val(), 10),
+      staff: parseInt(this.$("#staff-input").val(), 10),
+      checkIn: this.$("#datetimepickerStart").val(),
+      checkOut: this.$("#datetimepickerEnd").val(),
       types: []
     };
+
+    
+    
+    
     $(".checkbox-choice").each( function (i, box) {
       var $box = $(box);
       if ($box.is(":checked")) {
@@ -85,9 +96,9 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
     $slider.noUiSlider({
       range: {
         'min': 0,
-        'max': 1000
+        'max': 10000
       },
-      start: [0, 1000],
+      start: [0, 10000],
       step: 1,
       connect: true,
       orientation: "horizontal",
@@ -97,14 +108,21 @@ Starbnb.Views.SearchSidebar = Backbone.CompositeView.extend({
       })
 
     });
+    var $upper = $("#price-upper")
     $slider.Link("lower").to($("#price-lower"));
-    $slider.Link("upper").to($("#price-upper"));
+    $slider.Link("upper").to($upper);
+    $upper.val("10000+")
   },
   
   initDate: function () {
     this.$('.datetimepicker').datetimepicker({
       pickTime: false
     });
+    var now = new Date();
+    var tomorrow = new Date();
+    tomorrow.setDate(now.getDate() + 1);
+    this.$('#datetimepickerStart').data("DateTimePicker").setMinDate(now)
+    this.$('#datetimepickerEnd').data("DateTimePicker").setMinDate(tomorrow)
   },
   
   renderResults: function () {

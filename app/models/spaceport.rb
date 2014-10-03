@@ -20,7 +20,9 @@
 class Spaceport < ActiveRecord::Base
   validates( :name, :address, :user_id, :style, :price, :staff, :pads,
     :description, :latitude, :longitude, presence: true )
-   
+  validates :price, :numericality => { :greater_than => 0, :less_than_or_equal_to => 20000 }
+  validates :staff, :numericality => { :greater_than => 0, :less_than_or_equal_to => 500 }
+  validates :pads, :numericality => { :greater_than => 0, :less_than_or_equal_to => 100 }
    
   belongs_to :user
   

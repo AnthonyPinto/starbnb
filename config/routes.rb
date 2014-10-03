@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root to: "static_pages#index"
+  root to: "static_pages#splash"
   
-  get '/splash', to: 'static_pages#splash'
+  get '/index', to: 'static_pages#index'
   
   resource :session, only: [:create, :destroy]
   

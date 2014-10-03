@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-xs-12 new-spaceport-form-wrapper">
         <h2>New Spaceport</h2>
+        <div class="form-alerts"></div>
           <div class="new-spaceport-img-wrapper">
             <img
               class="new-spaceport-img"
@@ -65,7 +66,10 @@
                 type="number"
                 id="new-spaceport-pads"
                 class="form-control"
+                max="100"
+                min="1"
                 name="spaceport[pads]"
+                placeholder="1 - 100"
                 onkeypress="return event.charCode >= 48 && event.charCode <= 57">
             </div>
           </div>
@@ -80,7 +84,10 @@
                 type="number"
                 id="new-spaceport-staff"
                 class="form-control"
+                max="1000"
+                min="1"
                 name="spaceport[staff]"
+                placeholder="1 - 500"
                 onkeypress="return event.charCode >= 48 && event.charCode <= 57">
             </div>
           </div>
@@ -95,6 +102,9 @@
                 type="number"
                 id="new-spaceport-price"
                 class="form-control"
+                max="20000"
+                min="1"
+                placeholder="1 - 20000"
                 name="spaceport[price]"
                 onkeypress="return event.charCode >= 48 && event.charCode <= 57">
             </div>

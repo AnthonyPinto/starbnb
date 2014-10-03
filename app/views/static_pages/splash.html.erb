@@ -1,6 +1,29 @@
+<div class="splash-body-wrapper">
+
 <%= render "layouts/new_user" %> 
 <%= render "layouts/new_session" %>
 
 <%= render "layouts/splash_nav" %> 
 
-<%= link_to("look for spaces", "/index") %>
+
+<div class="splash-panel">
+  <h1 id="splash-title" class="centered-text">The journey begins here...</h1>
+  <button
+    id="splash-button"
+    data-toggle="modal"  
+    data-target="#login-modal">
+    GUEST LOGIN
+  </button>
+</div>
+
+
+<img
+  id="splash-image"
+  src="assets/splash.jpg">
+
+
+
+
+
+</div>
+

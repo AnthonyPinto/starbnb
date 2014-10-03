@@ -27,16 +27,25 @@ Starbnb.Collections.Spaceports = Backbone.Collection.extend({
     var results = collection.filter( function (spaceport) {
       if (collection.filters) {
         if ( !(collection.filters.types.length === 0) &&
-          !(_.contains(collection.filters.types, spaceport.get('style'))) ){
+          !(_.contains(collection.filters.types, spaceport.escape('style'))) ){
           return false;
         }
-        var price = parseInt(spaceport.get('price'), 10);
-        if (price < collection.filters.priceLower || price > collection.filters.priceUpper){
+        var price = parseInt(spaceport.escape('price'), 10);
+        if (price < collection.filters.priceLower){
           return false;
         }
+        var upper = collection.filters.priceUpper;
+        if ( upper !== 10000 && price > upper ) {
+          return false;
+        }
+        var staffInput = collection.filters.staff
+        if (staffInput && spaceport.escape("staff") < staffInput) {
+          return false;
+        }
+        
       }
-      var lat = parseFloat(spaceport.get("latitude"));
-      var lng = parseFloat(spaceport.get("longitude"));
+      var lat = parseFloat(spaceport.escape("latitude"));
+      var lng = parseFloat(spaceport.escape("longitude"));
       var latlng = new google.maps.LatLng(lat, lng);
       
       if (collection.bounds && !collection.bounds.contains(latlng)){

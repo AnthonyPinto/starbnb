@@ -2,6 +2,9 @@
 <html>
 <head>
 <%= favicon_link_tag 'favicon.ico' %>
+
+
+
   
   <title>Starbnb</title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
@@ -13,22 +16,14 @@
     window.CURRENT_USER_ID = <%= current_user.id %>
     </script>
   <% end %>
+  <link <link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 </head>
 <script type="text/javascript"
   src="//api.filepicker.io/v1/filepicker.js">
 </script>
 <body>
 <div class="body-wrapper container-fluid">
-<% if flash["errors"] %>
-  <% flash["errors"].each do |msg| %>
-  <div class="alert alert-warning"><%= msg %></div>
-  <% end %>
-<% end %>
-<% if flash["successes"] %>
-  <% flash["successes"].each do |msg| %>
-    <div class="alert alert-success"><%= msg %></div>
-  <% end %>
-<% end %>
+
 
 
 
@@ -41,5 +36,5 @@
     filepicker.setKey("<%= ENV['FILEPICKER_KEY'] %>");
   })
 </script>
-</body>
+</body>dd
 </html>

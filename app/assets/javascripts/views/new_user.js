@@ -33,8 +33,15 @@ Starbnb.Views.NewUser = Backbone.CompositeView.extend({
         success: function (model) {
           view.createAvatar(model.escape("id"));
         },
-        error: function () {
+        error: function (model, response) {
           view.$(".has-error").addClass("problem-field");
+          var $header = $(".modal-header");
+          _(response.responseJSON).each( function (message) {
+            var $alert = $("<div class='alert alert-warning'></div>");
+            $alert.html(message);
+            $header.append($alert);
+            window.fadeAlertDivs();
+          });
         }
       }
     );
@@ -51,7 +58,7 @@ Starbnb.Views.NewUser = Backbone.CompositeView.extend({
       {},
       {
         success: function () {
-          document.location.href="/";
+          document.location.href="/index";
         }
       }
     )
@@ -64,7 +71,7 @@ Starbnb.Views.NewUser = Backbone.CompositeView.extend({
     console.log(this.names);
   },
   
-  
+  //This whole name checking implementation is insecure. Todo: fix or ditch. 
   checkName: function (event) {
     console.log("checkName");
     if (this.usersLoaded) {
