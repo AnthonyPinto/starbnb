@@ -136,9 +136,29 @@ ul {
   width: 100%;
   background-color: #E8E8E8;
   border: 1px rgb(220, 224, 224) solid;
+  padding: 15px;
 }
 
 .comments-wrapper {
+  width: 100%;
+  background-color: #E8E8E8;
+  border: 1px rgb(220, 224, 224) solid;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.comment-wrapper {
+  background-color: white;
+  margin:15px;
+  padding:15px;
+  border: 1px rgb(220, 224, 224) solid;
+}
+
+.comment-name {
+  margin: 0px;
+}
+
+.extras-wrapper {
   background-color: #f5f5f5;
   border: 1px rgb(220, 224, 224) solid;
 }

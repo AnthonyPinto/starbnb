@@ -145,7 +145,7 @@
 		</div> <!--spaceport-panel-row -->
 	</div> <!--spaceport-panel-wrapper -->
 </div>  <!--spaceport-box -->
-<div class="comments-wrapper">
+<div class="extras-wrapper">
   <div class="spaceport-panel-info-wrapper">
     <div class="row">
       <div class="col-xs-8">
@@ -154,11 +154,10 @@
           <p><%= spaceport.escape("description") %></p>
         </div>
         <h3 class="centered-text">Spaceport Reviews</h3>
-        <div class="description-wrapper">
+        <div class="comments-wrapper clearfix">
           <div class="comments"></div>
 
           <form role="form">
-            <div class="row">
               <div class="col-xs-10" >
                 <textarea 
                   id="spaceport-comment-field"
@@ -173,7 +172,6 @@
                     Submit
                 </button>
               </div>
-            </div>
           </form>
         </div>
         

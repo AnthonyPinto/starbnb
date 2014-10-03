@@ -1,17 +1,18 @@
 
-
-<div class="row">
-  <div class="col-xs-2 col-xs-offset-1">
-    <div class="comment-user-img-frame">
-      <img src="<%= escape(comment.photoUrl) %>" class="brief-user-img">
+<div class="comment-wrapper">
+  <div class="row">
+    <div class="col-xs-2">
+      <h4 class="comment-name centered-text"><%= escape(comment.username)%></h4>
+      <div class="comment-user-img-frame">
+        <img src="<%= escape(comment.photoUrl) %>" class="brief-user-img">
+      </div>
     </div>
-    <h4><%= escape(comment.username)%></h4>
-  </div>
-  <div class="col-xs-8">
+    <div class="col-xs-10">
   
-    <p><%= comment.escape("body") %></p>
-  </div>
+      <p><%= comment.escape("body") %></p>
+    </div>
 
+  </div>
 </div>
 
 
