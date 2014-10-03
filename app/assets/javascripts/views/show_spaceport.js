@@ -4,18 +4,65 @@ Starbnb.Views.ShowSpaceport = Backbone.CompositeView.extend({
   template: JST["spaceports/show_spaceport"],
 	
   initialize: function () {
-    window.scrollTo(0,0)
+    window.scrollTo(0,0);
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.comments(), 'sync', this.refreshCommentViews);
   },
   
   events: {
+    "click .unpressed" : "tryRequest",
     "click .spaceport-comment-button" : "createComment",
     "dp.change #datetimepickerStart" : "setStartDate",
     "blur #datetimepickerStart" : "setStartDate",
     "dp.change #datetimepickerEnd" : "setEndDate",
-    "blur #datetimepickerEnd" : "setEndDate"
+    "blur #datetimepickerEnd" : "setEndDate",
+    "change #request-staff-field" : "checkStaff"
   },
+  
+  tryRequest: function () {
+    var $startField = this.$("#datetimepickerStart");
+    if ($startField.val() === "") {
+      $startField.focus();
+      return false;
+    }
+    var $endField = this.$("#datetimepickerEnd");
+    if ($endField.val() === "") {
+      $endField.focus();
+      return false;
+    }
+    var $staffField = this.$("#request-staff-field");
+    if ($staffField.val() === "") {
+      $staffField.focus();
+      $staffField.addClass("problem-field");
+      return false;
+    }
+    var val = parseInt($staffField.val(), 10);
+    if (val <= 0 || val > parseInt(this.model.escape("staff"), 10)){
+      $staffField.focus();
+      $staffField.addClass("problem-field");
+      return false;
+    }
+    this.sendRequest()
+  },
+  
+  sendRequest: function () {
+    var $button = this.$(".book-button");
+    $button.removeClass("unpressed");
+    $button.addClass("pressed")
+    $button.html('Request "Sent"')
+  },
+  
+  
+  checkStaff: function () {
+    var $field = this.$("#request-staff-field");
+    var val = parseInt($field.val(), 10);
+    if (val > 0 && val <= parseInt(this.model.escape("staff"), 10)){
+      $field.removeClass("problem-field")
+    } else {
+      $field.addClass("problem-field")
+    }
+  },
+  
 	
   initDate: function () {
     this.$('.datetimepicker').datetimepicker({
