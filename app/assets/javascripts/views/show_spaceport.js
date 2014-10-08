@@ -1,4 +1,4 @@
-/*global Starbnb JST CURRENT_USER_ID*/
+/*global Starbnb JST*/
 
 Starbnb.Views.ShowSpaceport = Backbone.CompositeView.extend({
   template: JST["spaceports/show_spaceport"],
@@ -82,7 +82,6 @@ Starbnb.Views.ShowSpaceport = Backbone.CompositeView.extend({
     console.log(body);
     if (body.length !== 0){
       var attributes = {
-        user_id: CURRENT_USER_ID,
         commentable_type: "Spaceport",
         commentable_id: this.model.get("id"),
         body: body

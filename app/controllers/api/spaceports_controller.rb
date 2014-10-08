@@ -11,6 +11,7 @@ class Api::SpaceportsController < ApplicationController
 
   def create
     @spaceport = Spaceport.new(spaceport_params)
+    @spaceport.user_id = current_user.id
 
     if @spaceport.save
       render json: @spaceport

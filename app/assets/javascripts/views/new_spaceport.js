@@ -21,7 +21,6 @@ Starbnb.Views.NewSpaceport = Backbone.CompositeView.extend({
     var attributes = this.$('form').serializeJSON();
     attributes.spaceport.latitude = this.$("#new-spaceport-latitude").html();
     attributes.spaceport.longitude = this.$("#new-spaceport-longitude").html();
-    attributes.spaceport.user_id = window.CURRENT_USER_ID;
     this.model.set(attributes);
     var view = this;
     this.model.save(

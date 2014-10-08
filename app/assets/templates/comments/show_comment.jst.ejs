@@ -2,9 +2,9 @@
 <div class="comment-wrapper">
   <div class="row">
     <div class="col-xs-2">
-      <h4 class="comment-name centered-text"><%= escape(comment.username)%></h4>
+      <h4 class="comment-name centered-text"><%= _.escape(comment.username)%></h4>
       <div class="comment-user-img-frame">
-        <img src="<%= escape(comment.photoUrl) %>" class="brief-user-img">
+        <img src="<%= _.escape(comment.photoUrl) %>" class="brief-user-img">
       </div>
     </div>
     <div class="col-xs-10">
