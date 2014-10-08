@@ -1,4 +1,4 @@
-#starbnb#
+*starbnb*
 
 Clone of the airbnb website
 
@@ -12,9 +12,11 @@ Primary Features:
 
 * Live listing creation with image and location selection
 
-_to run locally site requires figaro application.yml file with api keys for:_
 
-**GOOGLE_KEY**
 
-**FILEPICKER_KEY**
+to run locally site requires figaro application.yml file with api keys for:
+
+GOOGLE_KEY
+
+FILEPICKER_KEY
 
