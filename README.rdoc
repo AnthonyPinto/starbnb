@@ -1,28 +1,20 @@
-== README
+#starbnb#
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Clone of the airbnb website
 
-Things you may want to cover:
+Primary Features:
 
-* Ruby version
+* Auth sytem with guest login
 
-* System dependencies
+* interactive listing filtration with interactive map feed-back
 
-* Configuration
+* Live user creation with avatar selection and upload
 
-* Database creation
+* Live listing creation with image and location selection
 
-* Database initialization
+_to run locally site requires figaro application.yml file with api keys for:_
 
-* How to run the test suite
+**GOOGLE_KEY**
 
-* Services (job queues, cache servers, search engines, etc.)
+**FILEPICKER_KEY**
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
