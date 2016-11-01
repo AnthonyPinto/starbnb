@@ -18,7 +18,7 @@ http://starbnb.herokuapp.com
 
 to run locally site requires figaro application.yml file with api keys for:
 
-GOOGLE_KEY
+  GOOGLE_KEY
 
-FILEPICKER_KEY
+  FILEPICKER_KEY
 
