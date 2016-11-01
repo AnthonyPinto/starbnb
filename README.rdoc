@@ -1,6 +1,6 @@
-= starbnb
+= Starbnb
 
-Clone of the airbnb website (circa 2014)
+Clone of the Airbnb website (circa 2014)
 
 http://starbnb.herokuapp.com
 
