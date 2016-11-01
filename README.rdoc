@@ -1,8 +1,10 @@
-*starbnb*
+= starbnb
 
-Clone of the airbnb website
+Clone of the airbnb website (circa 2014)
 
-Primary Features:
+http://starbnb.herokuapp.com
+
+== Primary Features
 
 * Auth sytem with guest login
 
@@ -12,7 +14,7 @@ Primary Features:
 
 * Live listing creation with image and location selection
 
-
+== Run Locally
 
 to run locally site requires figaro application.yml file with api keys for:
 
